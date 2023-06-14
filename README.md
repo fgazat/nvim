@@ -1,1 +1,5 @@
-# neovim
+# Nvim
+
+Todo: 
+
+* folding;
