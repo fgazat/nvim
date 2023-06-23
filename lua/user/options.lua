@@ -1,4 +1,6 @@
-vim.cmd.colorscheme "catppuccin-mocha"
+-- Default options:
+vim.cmd("colorscheme kanagawa-wave")
+
 -- vim.cmd.colorscheme "nightfox"
 local options = {
     backup = false,

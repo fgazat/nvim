@@ -20,12 +20,29 @@ local plugins = {
     },
     "moll/vim-bbye",
 
-    -- Colorschemes
-    -- "navarasu/onedark.nvim",
-    "EdenEast/nightfox.nvim",
     {
-        "catppuccin/nvim",
-        name = "catppuccin"
+        "rebelot/kanagawa.nvim",
+        config = function()
+            require('kanagawa').setup({
+                colors = {
+                    theme = {
+                        wave = {
+                            ui = {
+                                float = {
+                                    bg = "none",
+                                },
+                                bg_visual = "#756d57",
+                            },
+                        },
+                        all = {
+                            ui = {
+                                bg_gutter = "none"
+                            }
+                        }
+                    }
+                },
+            })
+        end
     },
     "nvim-tree/nvim-web-devicons",
     {
@@ -66,7 +83,7 @@ local plugins = {
     -- "williamboman/nvim-lsp-installer",
     "simrat39/symbols-outline.nvim",
     -- cmp plugins,
-    { "hrsh7th/nvim-cmp" },
+    "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-buffer",  -- buffer completions,
     "hrsh7th/cmp-path",    -- path completions,
     "hrsh7th/cmp-cmdline", -- cmdline completions,

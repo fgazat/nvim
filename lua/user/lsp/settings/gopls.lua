@@ -2,7 +2,6 @@ local util = require "lspconfig.util"
 
 return {
     root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-    -- root_dir = util.root_pattern("ya.make", "go.work", "go.mod", ".git"),
     cmd = {
         "gopls",
         "-debug=:8080",
