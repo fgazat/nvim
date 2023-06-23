@@ -81,7 +81,6 @@ local plugins = {
     "neovim/nvim-lspconfig",
     "williamboman/mason.nvim",
     -- "williamboman/nvim-lsp-installer",
-    "simrat39/symbols-outline.nvim",
     -- cmp plugins,
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-buffer",  -- buffer completions,
@@ -114,14 +113,11 @@ local plugins = {
     },
     "JoosepAlviste/nvim-ts-context-commentstring",
 
-    -- {
-    --     "glepnir/lspsaga.nvim",
-    --     event = "LspAttach",
-    --     config = function()
-    --         require("lspsaga").setup({})
-    --     end,
-    --     dependencies = { { "nvim-tree/nvim-web-devicons" } }
-    -- }
+    {
+        "glepnir/lspsaga.nvim",
+        event = "LspAttach",
+        dependencies = { { "nvim-tree/nvim-web-devicons" } }
+    }
 }
 
 

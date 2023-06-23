@@ -3,6 +3,7 @@ vim.g.maplocalleader = " "
 local keymap = vim.keymap.set
 
 keymap('n', 'Q', '<nop>')
+keymap('n', 'q:', '<nop>')
 
 -- better indenting
 keymap('v', '<', '<gv')
@@ -54,8 +55,6 @@ keymap("n", "<leader>ld", "<cmd>Telescope diagnostics bufnr=0<cr>")
 keymap("n", "<leader>lw", "<cmd>Telescope diagnostics<cr>")
 keymap("n", "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>")
 keymap("n", "<leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>")
-keymap("n", "<leader>lo", vim.cmd.SymbolsOutline)
-
 
 keymap('n', '<leader><F5>', vim.cmd.UndotreeToggle)
 -- Markdown
