@@ -1,5 +1,17 @@
 local util = require "lspconfig.util"
 
+local filter = {
+    "-",
+    "+locdoc/doc_tools",
+    "+tasklet",
+    "+sandbox/tasklet",
+    "+browser/backend/pkg/startrek"
+}
+if string.find(vim.api.nvim_buf_get_name(0), "/arcadia") == nil then
+    filter = {}
+end
+
+
 return {
     root_dir = util.root_pattern("go.work", "go.mod", ".git"),
     cmd = {
@@ -21,12 +33,7 @@ return {
             },
             staticcheck = true,
             expandWorkspaceToModule = false,
-            directoryFilters = {
-                "-",
-                "+locdoc/doc_tools",
-                "+tasklet",
-                "+sandbox/tasklet"
-            },
+            directoryFilters = filter,
             subdirWatchPatterns = "on"
         },
     },

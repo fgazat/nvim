@@ -26,19 +26,8 @@ local plugins = {
             require('kanagawa').setup({
                 colors = {
                     theme = {
-                        wave = {
-                            ui = {
-                                float = {
-                                    bg = "none",
-                                },
-                                bg_visual = "#756d57",
-                            },
-                        },
-                        all = {
-                            ui = {
-                                bg_gutter = "none"
-                            }
-                        }
+                        wave = { ui = { float = { bg = "none", }, bg_visual = "#756d57", }, },
+                        all = { ui = { bg_gutter = "none" } }
                     }
                 },
             })
