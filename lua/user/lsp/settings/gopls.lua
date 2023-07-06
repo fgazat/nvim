@@ -5,6 +5,8 @@ local filter = {
     "+locdoc/doc_tools",
     "+tasklet",
     "+sandbox/tasklet",
+    "+yt/go",
+    "+noc/go",
     "+browser/backend/pkg/startrek"
 }
 if string.find(vim.api.nvim_buf_get_name(0), "/arcadia") == nil then
