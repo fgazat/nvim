@@ -1,6 +1,6 @@
 require "user.lazy"
 require "user.keybindings"
-require('impatient')
+require "impatient"
 require "user.cmp"
 require "user.options"
 require "user.treesitter"
