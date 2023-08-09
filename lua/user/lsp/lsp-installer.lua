@@ -14,7 +14,9 @@ local servers = {
     "bashls",
     "groovyls",
     "gopls",
-    "marksman"
+    "marksman",
+    -- "eslint",
+    "tsserver"
 }
 
 local settings = {
