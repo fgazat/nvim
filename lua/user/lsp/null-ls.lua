@@ -15,8 +15,10 @@ null_ls.setup {
     sources = {
         formatting.prettier.with {
             extra_filetypes = { "toml", "solidity", "markdown" },
-            extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+            -- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+            extra_args = { "--single-quote", "--jsx-single-quote", "--print-width 120" },
         },
+        formatting.eslint,
         formatting.black.with { extra_args = { "--line-length=120" } },
         formatting.isort,
 

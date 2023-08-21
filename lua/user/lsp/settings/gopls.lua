@@ -13,14 +13,8 @@ if string.find(vim.api.nvim_buf_get_name(0), "/arcadia") == nil then
     filter = {}
 end
 
-
 return {
     root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-    cmd = {
-        "gopls",
-        "-debug=:8080",
-        "-rpc.trace",
-    },
     settings = {
         gopls = {
             analyses = { unusedparams = true, unusedwrite = true, shadow = true },

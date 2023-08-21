@@ -102,9 +102,10 @@ M.on_attach = function(client, bufnr)
     lsp_highlight_document(client)
     attach_navic(client, bufnr)
 
-    if client.name == "gopls" or client.name == 'pylsp' then
+    if client.name == "gopls" or client.name == 'pylsp' or client.name == 'tsserver' then
         client.server_capabilities.documentFormattingProvider = false
     end
+
 end
 
 function M.enable_format_on_save()
