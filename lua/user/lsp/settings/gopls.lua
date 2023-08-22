@@ -28,6 +28,7 @@ return {
                 rangeVariableTypes = true,
             },
             staticcheck = true,
+            usePlaceholders = true,
             expandWorkspaceToModule = false,
             directoryFilters = filter,
             subdirWatchPatterns = "on"
