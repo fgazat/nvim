@@ -71,7 +71,7 @@ cmp.setup {
     mapping = cmp.mapping.preset.insert {
         ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
         ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
-        ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs( -1), { "i", "c" }),
+        ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
         ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
         ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
         ["<m-o>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
@@ -115,8 +115,8 @@ cmp.setup {
             "s",
         }),
         ["<C-h>"] = cmp.mapping(function(fallback)
-            if luasnip.jumpable( -1) then
-                luasnip.jump( -1)
+            if luasnip.jumpable(-1) then
+                luasnip.jump(-1)
             elseif check_backspace() then
                 fallback()
             else
@@ -141,8 +141,8 @@ cmp.setup {
         ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif luasnip.locally_jumpable( -1) and luasnip.in_snippet() then
-                luasnip.jump( -1)
+            elseif luasnip.locally_jumpable(-1) and luasnip.in_snippet() then
+                luasnip.jump(-1)
             else
                 fallback()
             end
@@ -194,7 +194,7 @@ cmp.setup {
     --     end,
     -- },
     sources = {
-        { name = "crates",   group_index = 1 },
+        { name = "crates", group_index = 1 },
         {
             name = "copilot",
             -- keyword_length = 0,
@@ -241,7 +241,7 @@ cmp.setup {
             group_index = 2,
         },
         { name = "nvim_lua", group_index = 2 },
-        { name = "luasnip",  group_index = 2 },
+        { name = "luasnip", group_index = 2 },
         {
             name = "buffer",
             group_index = 2,
@@ -251,9 +251,9 @@ cmp.setup {
                 end
             end,
         },
-        { name = "cmp_tabnine",    group_index = 2 },
-        { name = "path",           group_index = 2 },
-        { name = "emoji",          group_index = 2 },
+        { name = "cmp_tabnine", group_index = 2 },
+        { name = "path", group_index = 2 },
+        { name = "emoji", group_index = 2 },
         { name = "lab.quick_data", keyword_length = 4, group_index = 2 },
     },
     sorting = {
