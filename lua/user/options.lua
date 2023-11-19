@@ -1,6 +1,8 @@
 -- Default options:
-vim.cmd("colorscheme kanagawa-wave")
-
+-- vim.cmd("colorscheme kanagawa-wave")
+-- vim.cmd("colorscheme tokyonight")
+vim.cmd [[colorscheme solarized-osaka]]
+--
 -- vim.cmd.colorscheme "nightfox"
 local options = {
     backup = false,
@@ -8,7 +10,7 @@ local options = {
     cmdheight = 1,
     completeopt = { "menu", "menuone" },
     conceallevel = 0,
-    colorcolumn = "120",
+    -- colorcolumn = "120",
     fileencoding = "utf-8",
     encoding = "utf-8",
     hidden = true,

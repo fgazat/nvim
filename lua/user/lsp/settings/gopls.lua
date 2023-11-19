@@ -1,5 +1,8 @@
 local util = require "lspconfig.util"
 
+
+-- local filter = {}
+
 local filter = {
     "-",
     "+locdoc/doc_tools",

@@ -62,7 +62,7 @@ keymap('n', '<leader><F5>', vim.cmd.UndotreeToggle)
 keymap("n", "<leader>mp", vim.cmd.MarkdownPreview)
 keymap("n", "<leader>ms", vim.cmd.MarkdownPreviewStop)
 
-keymap("n", "<leader>e", "<cmd>:NvimTreeToggle<cr>", opts)
+keymap("n", "<leader>e", "<cmd>:NvimTreeFocus<cr>", opts)
 
 
 
@@ -82,7 +82,8 @@ keymap('n', '<leader>F', function()
 end)
 
 
-
+keymap({ "n", "v", "i" }, "<S-Up>", "<Up>")
+keymap({ "n", "v", "i" }, "<S-Down>", "<Down>")
 
 -- LSPSAGA bad
 -- keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
@@ -117,3 +118,10 @@ keymap("n", "gl", builtin.diagnostics)
 
 keymap("n", "<M-f>", "<cmd>Format<cr>")
 -- vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format({ async = true })' ]]
+vim.keymap.set("n", "=", [[<cmd>vertical resize +5<cr>]]) -- make the window biger vertically
+vim.keymap.set("n", "-", [[<cmd>vertical resize -5<cr>]]) -- make the window smaller vertically
+vim.keymap.set("n", "+", [[<cmd>horizontal resize +2<cr>]]) -- make the window bigger horizontally by pressing shift and =
+vim.keymap.set("n", "_", [[<cmd>horizontal resize -2<cr>]]) -- make the window smaller horizontally by pressing shift and -
+vim.keymap.set("n", "-", [[<cmd>vertical resize -5<cr>]]) -- make the window smaller vertically
+vim.keymap.set("n", "+", [[<cmd>horizontal resize +2<cr>]]) -- make the window bigger horizontally by pressing shift and =
+vim.keymap.set("n", "_", [[<cmd>horizontal resize -2<cr>]]) -- make the window smaller horizontally by pressing shift and -

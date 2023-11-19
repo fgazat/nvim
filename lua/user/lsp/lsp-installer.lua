@@ -16,6 +16,7 @@ local servers = {
     "gopls",
     "marksman",
     -- "eslint",
+    -- "jedi-language-server",
     "tsserver"
 }
 
@@ -98,6 +99,12 @@ for _, server in pairs(servers) do
         opts = vim.tbl_deep_extend("force", gopls_opts, opts)
     end
 
+
+    if server == "jedi-language-server" then
+        server = "jedi_language_server"
+        local gopls_opts = require "user.lsp.settings.jedi"
+        opts = vim.tbl_deep_extend("force", gopls_opts, opts)
+    end
     lspconfig[server].setup(opts)
     ::continue::
 end
