@@ -3,7 +3,7 @@ return {
         python = {
             analysis = {
                 diagnosticSeverityOverrides = {
-                    -- reportGeneralTypeIssues = "none",
+                    reportGeneralTypeIssues = "none",
                     -- reportOptionalMemberAccess = "none",
                     -- reportOptionalOperand = "none",
                     -- reportOptionalSubscript = "none",

@@ -6,6 +6,8 @@ local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_cmp_ok then
     return
 end
+M.capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
+
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
@@ -105,7 +107,6 @@ M.on_attach = function(client, bufnr)
     if client.name == "gopls" or client.name == 'pylsp' or client.name == 'tsserver' then
         client.server_capabilities.documentFormattingProvider = false
     end
-
 end
 
 function M.enable_format_on_save()
@@ -140,6 +141,7 @@ end
 -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
 -- vim.cmd [[ autocmd BufWritePre *.go :silent! lua vim.lsp.buf.formatting() ]]
 vim.cmd [[ autocmd FileType go setlocal omnifunc=v:lua.vim.lsp.omnifunc ]]
+vim.cmd [[ autocmd FileType markdown lua require('cmp').setup.buffer { enabled = false }]]
 vim.cmd [[ command! LspToggleAutoFormat execute 'lua require("user.lsp.handlers").toggle_format_on_save()' ]]
 
 return M

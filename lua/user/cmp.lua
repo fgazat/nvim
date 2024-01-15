@@ -56,11 +56,12 @@ vim.g.cmp_active = true
 
 cmp.setup {
     enabled = function()
-        local buftype = vim.api.nvim_buf_get_option(0, "buftype")
-        if buftype == "prompt" then
+        local in_prompt = vim.api.nvim_buf_get_option(0, 'buftype') == 'prompt'
+        if in_prompt then -- this will disable cmp in the Telescope window (taken from the default config)
             return false
         end
-        return vim.g.cmp_active
+        local context = require("cmp.config.context")
+        return not (context.in_treesitter_capture("comment") == true or context.in_syntax_group("Comment"))
     end,
     preselect = cmp.PreselectMode.None,
     snippet = {

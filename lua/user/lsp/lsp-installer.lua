@@ -10,13 +10,13 @@ local servers = {
     "jsonls",
     "lua_ls",
     "pyright",
+    -- "pylsp",
     "yamlls",
     "bashls",
     "groovyls",
     "gopls",
     "marksman",
     -- "eslint",
-    -- "jedi-language-server",
     "tsserver"
 }
 

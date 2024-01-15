@@ -6,6 +6,8 @@ local util = require "lspconfig.util"
 local filter = {
     "-",
     "+locdoc/doc_tools",
+    "-library",
+    "+library/go",
     "+tasklet",
     "+sandbox/tasklet",
     "+yt/go",

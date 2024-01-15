@@ -36,7 +36,6 @@ keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>")
 keymap("n", "gR", "<cmd>Trouble lsp_references<cr>")
 
 keymap("n", "<leader>h", vim.cmd.nohlsearch)
-keymap("n", "<leader>a", vim.cmd.Alpha)
 keymap("n", "<leader>c", vim.cmd.Bdelete)
 
 keymap("x", "<leader>p", [["_dP]])
@@ -55,6 +54,10 @@ keymap("n", "<leader>ld", "<cmd>Telescope diagnostics bufnr=0<cr>")
 keymap("n", "<leader>lw", "<cmd>Telescope diagnostics<cr>")
 keymap("n", "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>")
 keymap("n", "<leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>")
+keymap("n", "<leader>lr", "<cmd>LspRestart<CR>")
+keymap("n", "<leader>lce", "<cmd>lua require('cmp').setup.buffer { enabled = true }<CR>")
+keymap("n", "<leader>lcd", "<cmd>lua require('cmp').setup.buffer { enabled = false }<CR>")
+-- local job = vim.fn.jobstart('echo hello', {})
 
 keymap('n', '<leader><F5>', vim.cmd.UndotreeToggle)
 -- Markdown
@@ -79,6 +82,20 @@ end)
 
 keymap('n', '<leader>F', function()
     builtin.grep_string({ search = vim.fn.input("Grep > ") })
+end)
+
+
+keymap('n', '<leader>as', function()
+    require('telescope').extensions.arc.status({})
+end)
+keymap('n', '<leader>ab', function()
+    require('telescope').extensions.arc.branches({})
+end)
+keymap('n', '<leader>ap', function()
+    require('telescope').extensions.arc.pr_list({})
+end)
+keymap('n', '<leader>at', function()
+    require('telescope').extensions.arc.stash({})
 end)
 
 
@@ -118,10 +135,19 @@ keymap("n", "gl", builtin.diagnostics)
 
 keymap("n", "<M-f>", "<cmd>Format<cr>")
 -- vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format({ async = true })' ]]
-vim.keymap.set("n", "=", [[<cmd>vertical resize +5<cr>]]) -- make the window biger vertically
-vim.keymap.set("n", "-", [[<cmd>vertical resize -5<cr>]]) -- make the window smaller vertically
+vim.keymap.set("n", "=", [[<cmd>vertical resize +5<cr>]])   -- make the window biger vertically
+vim.keymap.set("n", "-", [[<cmd>vertical resize -5<cr>]])   -- make the window smaller vertically
 vim.keymap.set("n", "+", [[<cmd>horizontal resize +2<cr>]]) -- make the window bigger horizontally by pressing shift and =
 vim.keymap.set("n", "_", [[<cmd>horizontal resize -2<cr>]]) -- make the window smaller horizontally by pressing shift and -
-vim.keymap.set("n", "-", [[<cmd>vertical resize -5<cr>]]) -- make the window smaller vertically
+vim.keymap.set("n", "-", [[<cmd>vertical resize -5<cr>]])   -- make the window smaller vertically
 vim.keymap.set("n", "+", [[<cmd>horizontal resize +2<cr>]]) -- make the window bigger horizontally by pressing shift and =
 vim.keymap.set("n", "_", [[<cmd>horizontal resize -2<cr>]]) -- make the window smaller horizontally by pressing shift and -
+
+
+
+-- keymap({ "n", "v" }, "<leader>la", "<cmd>Lspsaga code_action<CR>")
+-- keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>")
+-- keymap("n", "<leader>lo", "<cmd>Lspsaga outline<CR>")
+-- keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>")
+-- keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
+-- keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>")
