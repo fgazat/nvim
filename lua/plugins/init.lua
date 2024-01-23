@@ -41,6 +41,7 @@ return {
             }
         end
     },
+
     { "preservim/tagbar",                lazy = true },
     { "neovim/nvim-lspconfig",           lazy = true },
     { "williamboman/mason.nvim",         lazy = true },
