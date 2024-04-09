@@ -6,6 +6,11 @@ local util = require "lspconfig.util"
 local filter = {
     "-",
     "+locdoc/doc_tools",
+    "+locdoc/libs/go",
+    "+locdoc/libs/gowiki",
+    "+locdoc/libs/godaas",
+    "+locdoc/doc/daas-farm/",
+    "+locdoc/doc/doccenter/go-sitemap",
     "-library",
     "+library/go",
     "+tasklet",

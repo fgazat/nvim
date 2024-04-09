@@ -2,11 +2,11 @@
 -- vim.cmd("colorscheme kanagawa-wave")
 -- vim.cmd("colorscheme tokyonight")
 -- vim.cmd [[colorscheme solarized-osaka]]
-
 -- vim.cmd [[colorscheme catppuccin-mocha]]
 -- vim.o.background = "dark"
 -- vim.cmd [[colorscheme gruvbox]]
 --
+
 
 -- vim.cmd.colorscheme "nightfox"
 local options = {
@@ -49,6 +49,9 @@ local options = {
     scrolloff = 8,
     sidescrolloff = 8,
     textwidth = 0,
+    -- keymap = "russian-jcukenwin",
+    -- iminsert = 0,
+    -- imsearch = 0,
 }
 
 vim.opt.fillchars = vim.opt.fillchars + 'eob: '

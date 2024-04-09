@@ -25,7 +25,7 @@ return {
             --   enable = false,
             -- },
             filters = {
-                custom = { "^.git", "^.idea", "__pycache__" },
+                custom = { "^.git", "^.idea", "__pycache__", "^test-results", "*.a"},
                 exclude = { "^.gitignore" },
             },
             -- auto_close = true,

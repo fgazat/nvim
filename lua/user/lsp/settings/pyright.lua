@@ -1,6 +1,9 @@
 return {
     settings = {
         python = {
+            -- exclude = { '.venv' },
+            -- venvPath = ".",
+            -- venv = ".venv",
             analysis = {
                 diagnosticSeverityOverrides = {
                     reportGeneralTypeIssues = "none",

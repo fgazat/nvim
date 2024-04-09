@@ -20,7 +20,9 @@ keymap('i', '<c-h>', "<nop>")
 -- keymap('n', '<c-k>', "<c-w>k")
 -- keymap('n', '<c-l>', "<c-w>l")
 keymap('i', '<c-l>', "<nop>")
+keymap('i', '<c-.>', "<c-^>", { noremap = true, silent = true })
 keymap("", "<space>", "<nop>")
+keymap({ "i", "n" }, "<F1>", "<nop>")
 keymap("n", "<C-u>", "<C-u>zz")
 keymap("n", "<C-d>", "<C-d>zz")
 
@@ -65,7 +67,8 @@ keymap('n', '<leader><F5>', vim.cmd.UndotreeToggle)
 keymap("n", "<leader>mp", vim.cmd.MarkdownPreview)
 keymap("n", "<leader>ms", vim.cmd.MarkdownPreviewStop)
 
-keymap("n", "<leader>e", "<cmd>:NvimTreeFocus<cr>", opts)
+-- keymap("n", "<leader>e", "<cmd>:Ex<cr>")
+keymap("n", "<leader>e", "<cmd>:NvimTreeOpen<cr>")
 
 
 
@@ -74,7 +77,7 @@ local themes = require('telescope.themes')
 keymap('n', '<leader>f', function()
     builtin.find_files(themes.get_dropdown({ previewer = false }))
 end)
-keymap('n', '<C-p>', builtin.git_files, {})
+-- keymap('n', '<C-p>', builtin.git_files, {})
 
 keymap("n", "<leader>b", function()
     builtin.buffers(themes.get_dropdown({ previewer = false, sort_lastused = true }))

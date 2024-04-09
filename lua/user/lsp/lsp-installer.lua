@@ -15,8 +15,11 @@ local servers = {
     "bashls",
     "groovyls",
     "gopls",
+    "bufls",
     "marksman",
+    -- "remark_ls",
     -- "eslint",
+    -- "jedi-language-server",
     "tsserver"
 }
 
@@ -94,11 +97,20 @@ for _, server in pairs(servers) do
         opts = vim.tbl_deep_extend("force", groovyls_opts, opts)
     end
 
+    if server == "remark_ls" then
+        local gopls_opts = require "user.lsp.settings.remark"
+        opts = vim.tbl_deep_extend("force", gopls_opts, opts)
+    end
+
     if server == "gopls" then
         local gopls_opts = require "user.lsp.settings.gopls"
         opts = vim.tbl_deep_extend("force", gopls_opts, opts)
     end
 
+    if server == "bufls" then
+        local gopls_opts = require "user.lsp.settings.buf"
+        opts = vim.tbl_deep_extend("force", gopls_opts, opts)
+    end
 
     if server == "jedi-language-server" then
         server = "jedi_language_server"

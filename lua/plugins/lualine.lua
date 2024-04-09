@@ -20,7 +20,7 @@ return {
             lualine_c = { 'diagnostics' },
             lualine_x = { 'diff' },
             lualine_y = { 'encoding' },
-            lualine_z = { 'location' },
+            lualine_z = { 'location', 'g:keymap' },
         },
     },
 }

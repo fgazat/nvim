@@ -2,28 +2,42 @@ return {
     { "moll/vim-bbye", },
     "rcarriga/nvim-notify",
 
-    {
-        "~/arcadia/junk/moonw1nd/lua/telescope-arc.nvim",
-        dir = "~/arcadia/junk/moonw1nd/lua/telescope-arc.nvim",
-        config = function()
-            require('telescope').load_extension('arc')
-        end
-    },
+    -- {
+    --     "~/arcadia/junk/moonw1nd/lua/telescope-arc.nvim",
+    --     dir = "~/arcadia/junk/moonw1nd/lua/telescope-arc.nvim",
+    --     config = function()
+    --         require('telescope').load_extension('arc')
+    --     end
+    -- },
 
     {
         "kevinhwang91/nvim-ufo",
         dependencies = "kevinhwang91/promise-async"
     },
     -- DEBUG,
-    { "mfussenegger/nvim-dap", lazy = true },
-    { "rcarriga/nvim-dap-ui",  lazy = true },
-    { "leoluz/nvim-dap-go",    lazy = true },
+    -- { "mfussenegger/nvim-dap", lazy = true },
+    -- { "rcarriga/nvim-dap-ui",  lazy = true },
+    -- { "leoluz/nvim-dap-go",    lazy = true },
     -- Surround,
     { "tpope/vim-surround", },
     -- TreeSitter.,
     {
         "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate"
+        build = ":TSUpdate",
+        config = function()
+            local configs = require 'nvim-treesitter.configs'
+            configs.setup {
+                ensure_installed = 'all',
+                -- установка phpdoc падает на m1
+                ignore_install = { 'phpdoc', 'smali' },
+                highlight = { -- enable highlighting
+                    enable = true,
+                },
+                indent = {
+                    enable = false, -- default is disabled anyways
+                },
+            }
+        end
     },
     -- Helping indent lines.,
     {
@@ -45,16 +59,6 @@ return {
     { "preservim/tagbar",                lazy = true },
     { "neovim/nvim-lspconfig",           lazy = true },
     { "williamboman/mason.nvim",         lazy = true },
-
-    -- "williamboman/nvim-lsp-installer",
-    -- cmp plugins,
-    { "hrsh7th/nvim-cmp", },
-    { "hrsh7th/cmp-buffer", },  -- buffer completions,
-    { "hrsh7th/cmp-path", },    -- path completions,
-    { "hrsh7th/cmp-cmdline", }, -- cmdline completions,
-    { "hrsh7th/cmp-nvim-lsp", },
-    { "hrsh7th/cmp-emoji", },
-    { "hrsh7th/cmp-nvim-lua", },
     { "jose-elias-alvarez/null-ls.nvim", lazy = true },
     { "mbbill/undotree", },
     {

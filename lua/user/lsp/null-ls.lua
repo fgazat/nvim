@@ -25,8 +25,7 @@ null_ls.setup {
     sources = {
         formatting.prettier.with {
             disabled_filetypes = { "markdown" },
-            extra_filetypes = { "toml", "solidity", "yaml" },
-            -- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+            extra_filetypes = { "toml", "solidity", "yaml", "json" },
             extra_args = { "--single-quote", "--jsx-single-quote", "--print-width=120", "--prose-wrap=always" },
         },
         formatting.eslint,
