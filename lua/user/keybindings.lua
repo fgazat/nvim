@@ -52,10 +52,6 @@ keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 -- LSP keymaps
 keymap("n", "<leader>lf", function() vim.lsp.buf.format({ async = true }) end)
 keymap("n", "<leader>la", "<cmd>Lspsaga code_action<CR>")
-keymap("n", "<leader>ld", "<cmd>Telescope diagnostics bufnr=0<cr>")
-keymap("n", "<leader>lw", "<cmd>Telescope diagnostics<cr>")
-keymap("n", "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>")
-keymap("n", "<leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>")
 keymap("n", "<leader>lr", "<cmd>LspRestart<CR>")
 keymap("n", "<leader>lce", "<cmd>lua require('cmp').setup.buffer { enabled = true }<CR>")
 keymap("n", "<leader>lcd", "<cmd>lua require('cmp').setup.buffer { enabled = false }<CR>")
@@ -72,34 +68,7 @@ keymap("n", "<leader>e", "<cmd>:NvimTreeOpen<cr>")
 
 
 
-local builtin = require('telescope.builtin')
-local themes = require('telescope.themes')
-keymap('n', '<leader>f', function()
-    builtin.find_files(themes.get_dropdown({ previewer = false }))
-end)
 -- keymap('n', '<C-p>', builtin.git_files, {})
-
-keymap("n", "<leader>b", function()
-    builtin.buffers(themes.get_dropdown({ previewer = false, sort_lastused = true }))
-end)
-
-keymap('n', '<leader>F', function()
-    builtin.grep_string({ search = vim.fn.input("Grep > ") })
-end)
-
-
-keymap('n', '<leader>as', function()
-    require('telescope').extensions.arc.status({})
-end)
-keymap('n', '<leader>ab', function()
-    require('telescope').extensions.arc.branches({})
-end)
-keymap('n', '<leader>ap', function()
-    require('telescope').extensions.arc.pr_list({})
-end)
-keymap('n', '<leader>at', function()
-    require('telescope').extensions.arc.stash({})
-end)
 
 
 keymap({ "n", "v", "i" }, "<S-Up>", "<Up>")
@@ -124,17 +93,12 @@ keymap("n", "gd", vim.lsp.buf.definition)
 keymap("n", "gD", vim.lsp.buf.declaration)
 keymap("n", "K", vim.lsp.buf.hover)
 keymap("n", "gI", vim.lsp.buf.implementation)
-keymap("n", "gr", builtin.lsp_references)
-keymap("n", "gi", builtin.lsp_incoming_calls)
-keymap("n", "go", builtin.lsp_outgoing_calls)
 keymap("n", "[d", vim.diagnostic.goto_prev)
 keymap("n", "]d", vim.diagnostic.goto_next)
 keymap("n", "gs", vim.lsp.buf.signature_help)
 keymap("n", "<leader>la", vim.lsp.buf.code_action)
 keymap("n", "<leader>rn", vim.lsp.buf.rename)
 
--- keymap("n", "gl", vim.diagnostic.open_float)
-keymap("n", "gl", builtin.diagnostics)
 
 keymap("n", "<M-f>", "<cmd>Format<cr>")
 -- vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format({ async = true })' ]]
