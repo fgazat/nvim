@@ -17,9 +17,9 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
+require "user.options"
 require "user.keybindings"
 require "user.cmp"
-require "user.options"
 require "user.lsp"
 -- require "user.dap"
 require "user.ufo"

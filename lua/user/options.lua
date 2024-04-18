@@ -1,14 +1,3 @@
--- Default options:
--- vim.cmd("colorscheme kanagawa-wave")
--- vim.cmd("colorscheme tokyonight")
--- vim.cmd [[colorscheme solarized-osaka]]
--- vim.cmd [[colorscheme catppuccin-mocha]]
--- vim.o.background = "dark"
--- vim.cmd [[colorscheme gruvbox]]
---
-
-
--- vim.cmd.colorscheme "nightfox"
 local options = {
     backup = false,
     clipboard = "unnamedplus",

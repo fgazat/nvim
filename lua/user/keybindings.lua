@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 local keymap = vim.keymap.set
 
 keymap('n', 'Q', '<nop>')
@@ -51,7 +49,6 @@ keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- LSP keymaps
 keymap("n", "<leader>lf", function() vim.lsp.buf.format({ async = true }) end)
-keymap("n", "<leader>la", "<cmd>Lspsaga code_action<CR>")
 keymap("n", "<leader>lr", "<cmd>LspRestart<CR>")
 keymap("n", "<leader>lce", "<cmd>lua require('cmp').setup.buffer { enabled = true }<CR>")
 keymap("n", "<leader>lcd", "<cmd>lua require('cmp').setup.buffer { enabled = false }<CR>")
@@ -74,20 +71,6 @@ keymap("n", "<leader>e", "<cmd>:NvimTreeOpen<cr>")
 keymap({ "n", "v", "i" }, "<S-Up>", "<Up>")
 keymap({ "n", "v", "i" }, "<S-Down>", "<Down>")
 
--- LSPSAGA bad
--- keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
--- keymap("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
--- keymap("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
--- keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
--- keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
---
--- keymap("n", "[D", function()
---     require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
--- end, { silent = true })
--- keymap("n", "]D", function()
---     require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
--- end, { silent = true })
-
 
 keymap("n", "gd", vim.lsp.buf.definition)
 keymap("n", "gD", vim.lsp.buf.declaration)
@@ -109,12 +92,3 @@ vim.keymap.set("n", "_", [[<cmd>horizontal resize -2<cr>]]) -- make the window s
 vim.keymap.set("n", "-", [[<cmd>vertical resize -5<cr>]])   -- make the window smaller vertically
 vim.keymap.set("n", "+", [[<cmd>horizontal resize +2<cr>]]) -- make the window bigger horizontally by pressing shift and =
 vim.keymap.set("n", "_", [[<cmd>horizontal resize -2<cr>]]) -- make the window smaller horizontally by pressing shift and -
-
-
-
--- keymap({ "n", "v" }, "<leader>la", "<cmd>Lspsaga code_action<CR>")
--- keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>")
--- keymap("n", "<leader>lo", "<cmd>Lspsaga outline<CR>")
--- keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>")
--- keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
--- keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>")
