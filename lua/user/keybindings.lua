@@ -25,7 +25,6 @@ keymap("n", "<C-u>", "<C-u>zz")
 keymap("n", "<C-d>", "<C-d>zz")
 
 -- LSP keys
-keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 keymap("n", "<leader>c", "<cmd>Bdelete!<cr>")
 keymap("n", "<leader>h", "<cmd>nohlsearch<cr>")
 keymap("n", "<leader>xx", "<cmd>Trouble<cr>")
