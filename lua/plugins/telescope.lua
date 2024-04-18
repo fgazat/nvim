@@ -19,7 +19,6 @@ return {
             end,
             desc = "Find files",
         },
-
         {
             "<leader>F",
             function()
