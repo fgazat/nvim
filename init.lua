@@ -15,12 +15,11 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("plugins", opts)
+require("lazy").setup("plugins")
 
 require "user.keybindings"
 require "user.cmp"
 require "user.options"
--- require "user.treesitter"
 require "user.lsp"
 -- require "user.dap"
 require "user.ufo"

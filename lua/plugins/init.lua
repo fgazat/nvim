@@ -72,7 +72,11 @@ return {
     { "L3MON4D3/LuaSnip", },             --snippet engine,
     { "rafamadriz/friendly-snippets", }, -- a bunch of snippets to use,
     { "saadparwaiz1/cmp_luasnip", },     -- snippet completions,
-    { "ray-x/lsp_signature.nvim", },
+    {
+        "ray-x/lsp_signature.nvim",
+        event = "VeryLazy",
+        config = true
+    },
     {
         "numToStr/Comment.nvim",
         config = true,
