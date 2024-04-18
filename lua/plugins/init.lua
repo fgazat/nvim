@@ -1,25 +1,20 @@
 return {
     { "moll/vim-bbye", },
+
     "rcarriga/nvim-notify",
-
-    -- {
-    --     "~/arcadia/junk/moonw1nd/lua/telescope-arc.nvim",
-    --     dir = "~/arcadia/junk/moonw1nd/lua/telescope-arc.nvim",
-    --     config = function()
-    --         require('telescope').load_extension('arc')
-    --     end
-    -- },
-
     {
         "kevinhwang91/nvim-ufo",
         dependencies = "kevinhwang91/promise-async"
     },
+
     -- DEBUG,
     -- { "mfussenegger/nvim-dap", lazy = true },
     -- { "rcarriga/nvim-dap-ui",  lazy = true },
     -- { "leoluz/nvim-dap-go",    lazy = true },
     -- Surround,
+
     { "tpope/vim-surround", },
+
     -- TreeSitter.,
     {
         "nvim-treesitter/nvim-treesitter",
@@ -46,21 +41,15 @@ return {
         opts = {},
         config = function()
             require("ibl").setup {
-                -- indent = { highlight = highlight, char = "" },
-                -- whitespace = {
-                --     highlight = highlight,
-                --     remove_blankline_trail = false,
-                -- },
                 scope = { enabled = false },
             }
         end
     },
 
-    { "preservim/tagbar",                lazy = true },
-    { "neovim/nvim-lspconfig",           lazy = true },
-    { "williamboman/mason.nvim",         lazy = true },
-    { "jose-elias-alvarez/null-ls.nvim", lazy = true },
-    { "mbbill/undotree", },
+    { "preservim/tagbar",        lazy = true },
+    { "neovim/nvim-lspconfig",   lazy = true },
+    { "williamboman/mason.nvim", lazy = true },
+    { "mbbill/undotree" },
     {
         "folke/trouble.nvim",
         dependencies = "nvim-tree/nvim-web-devicons",
