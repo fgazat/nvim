@@ -32,7 +32,10 @@ return {
         {
             "<leader>F",
             function()
-                require('telescope.builtin').grep_string({ search = vim.fn.input("Grep > ") })
+                vim.ui.input({ prompt = ' Grep > ' }, function(value)
+                    require('telescope.builtin').grep_string({ search = value })
+                end)
+                -- require('telescope.builtin').grep_string({ search = vim.fn.input("Grep > ") })
             end,
             desc = "Grep files",
         },
