@@ -11,7 +11,6 @@ return {
         }
     },
     keys = {
-
         { "<leader>ld", "<cmd>Telescope diagnostics bufnr=0<cr>",           desc = "diagnostics" },
         { "<leader>lw", "<cmd>Telescope diagnostics<cr>",                   desc = "diagnostics" },
         { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>",          desc = "symbols" },
@@ -21,7 +20,6 @@ return {
         { "go",         "<cmd>Telescope lsp_outgoing_calls<cr>",            desc = "Lsp outgoing calls" },
         { "gl",         "<cmd>Telescope diagnostics<cr>",                   desc = "diagnostics" },
         { "<leader>tt", "<cmd>Telescope todo-comments<cr>",                 desc = "diagnostics" },
-
         {
             "<leader>f",
             function()

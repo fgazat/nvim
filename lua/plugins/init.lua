@@ -80,11 +80,6 @@ return {
     },
     -- snippets,
     {
-        "ray-x/lsp_signature.nvim",
-        event = "VeryLazy",
-        config = true
-    },
-    {
         "numToStr/Comment.nvim",
         config = true,
         event = "BufEnter",
