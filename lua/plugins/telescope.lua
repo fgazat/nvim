@@ -16,6 +16,7 @@ return {
         { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>",          desc = "symbols" },
         { "<leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "symbols workspace" },
         { "gr",         "<cmd>Telescope lsp_references<cr>",                desc = "Lsp references" },
+        { "gd",         "<cmd>Telescope lsp_definitions<cr>",               desc = "Lsp defenitions" },
         { "gi",         "<cmd>Telescope lsp_incoming_calls<cr>",            desc = "Lsp incoming calls" },
         { "go",         "<cmd>Telescope lsp_outgoing_calls<cr>",            desc = "Lsp outgoing calls" },
         { "gl",         "<cmd>Telescope diagnostics<cr>",                   desc = "diagnostics" },

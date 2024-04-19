@@ -74,7 +74,6 @@ keymap({ "n", "v", "i" }, "<S-Up>", "<Up>")
 keymap({ "n", "v", "i" }, "<S-Down>", "<Down>")
 
 
-keymap("n", "gd", vim.lsp.buf.definition)
 keymap("n", "gD", vim.lsp.buf.declaration)
 keymap("n", "K", vim.lsp.buf.hover)
 keymap("n", "gI", vim.lsp.buf.implementation)
