@@ -23,5 +23,3 @@ require("lazy").setup("plugins")
 require "user.keybindings"
 require "user.cmp"
 require "user.lsp"
--- require "user.dap"
-require "user.ufo"
