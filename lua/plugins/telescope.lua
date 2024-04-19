@@ -11,7 +11,7 @@ return {
         }
     },
     keys = {
-        { "<leader>sR", "<cmd>Telescope resume<cr>",                        desc = "Resume" },
+
         { "<leader>ld", "<cmd>Telescope diagnostics bufnr=0<cr>",           desc = "diagnostics" },
         { "<leader>lw", "<cmd>Telescope diagnostics<cr>",                   desc = "diagnostics" },
         { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>",          desc = "symbols" },
@@ -36,6 +36,13 @@ return {
                     require('telescope.builtin').grep_string({ search = value })
                 end)
                 -- require('telescope.builtin').grep_string({ search = vim.fn.input("Grep > ") })
+            end,
+            desc = "Grep files",
+        },
+        {
+            "<leader>S",
+            function()
+                require('telescope.builtin').grep_string({ search = vim.fn.expand("<cword>") })
             end,
             desc = "Grep files",
         },
