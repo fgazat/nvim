@@ -7,19 +7,13 @@ end
 
 local servers = {
     "html",
-    "jsonls",
     "lua_ls",
     "pyright",
-    -- "pylsp",
-    "yamlls",
     "bashls",
-    "groovyls",
     "gopls",
     "bufls",
     "marksman",
-    -- "remark_ls",
     -- "eslint",
-    -- "jedi-language-server",
     "tsserver"
 }
 

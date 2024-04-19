@@ -60,7 +60,8 @@ keymap("n", "<leader>mp", vim.cmd.MarkdownPreview)
 keymap("n", "<leader>ms", vim.cmd.MarkdownPreviewStop)
 
 -- keymap("n", "<leader>e", "<cmd>:Ex<cr>")
-keymap("n", "<leader>e", "<cmd>:NvimTreeOpen<cr>")
+keymap("n", "<leader>e", "<cmd>:Oil<cr>")
+-- keymap("n", "<leader>e", "<cmd>:NvimTreeOpen<cr>")
 
 
 

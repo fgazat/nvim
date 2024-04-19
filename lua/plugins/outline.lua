@@ -1,4 +1,5 @@
 return {
     'simrat39/symbols-outline.nvim',
-    config = true
+    config = true,
+    event = "BufEnter"
 }

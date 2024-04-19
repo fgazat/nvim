@@ -1,9 +1,23 @@
 return {
-    { "moll/vim-bbye", },
+    {
+        "moll/vim-bbye",
+        event = "BufEnter"
+    },
+    {
+        "rcarriga/nvim-notify",
+        event = "VeryLazy",
+        config = function()
+            vim.notify = require("notify")
 
-    "rcarriga/nvim-notify",
+            require("notify").setup({
+                background_colour = "#000000",
+            })
+        end
+    },
+
     {
         "kevinhwang91/nvim-ufo",
+        event = "BufEnter",
         dependencies = "kevinhwang91/promise-async"
     },
 
@@ -13,14 +27,20 @@ return {
     -- { "leoluz/nvim-dap-go",    lazy = true },
     -- Surround,
 
-    { "tpope/vim-surround" },
-    { "dstein64/vim-startuptime" },
+    {
+        "tpope/vim-surround",
+        event = "VeryLazy"
+    },
+    {
+        "dstein64/vim-startuptime",
+        cmd = "StartupTime"
+    },
 
     -- TreeSitter.,
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        event = { "VeryLazy" },
+        event = "VeryLazy",
         config = function()
             local configs = require 'nvim-treesitter.configs'
             configs.setup {
@@ -43,13 +63,8 @@ return {
         main = "ibl",
         opts = {
 
-                scope = { enabled = false },
+            scope = { enabled = false },
         },
-        -- config = true,
-        -- config = function()
-        --     require("ibl").setup {
-        --     }
-        -- end
     },
 
     { "preservim/tagbar",        lazy = true },
@@ -72,7 +87,14 @@ return {
     {
         "numToStr/Comment.nvim",
         config = true,
+        event = "BufEnter",
         --    lazy = true
 
     },
+    {
+        'stevearc/oil.nvim',
+        opts = {},
+        -- Optional dependencies
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    }
 }

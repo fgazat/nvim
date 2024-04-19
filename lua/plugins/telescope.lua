@@ -1,6 +1,15 @@
 return {
     "nvim-telescope/telescope.nvim",
-    dependencies = { { "nvim-lua/plenary.nvim" } },
+    dependencies = {
+        { "nvim-lua/plenary.nvim" },
+        {
+            "folke/todo-comments.nvim",
+            dependencies = { "nvim-lua/plenary.nvim" },
+            opts = {
+                signs = false,
+            }
+        }
+    },
     keys = {
         { "<leader>sR", "<cmd>Telescope resume<cr>",                        desc = "Resume" },
         { "<leader>ld", "<cmd>Telescope diagnostics bufnr=0<cr>",           desc = "diagnostics" },
@@ -11,6 +20,7 @@ return {
         { "gi",         "<cmd>Telescope lsp_incoming_calls<cr>",            desc = "Lsp incoming calls" },
         { "go",         "<cmd>Telescope lsp_outgoing_calls<cr>",            desc = "Lsp outgoing calls" },
         { "gl",         "<cmd>Telescope diagnostics<cr>",                   desc = "diagnostics" },
+        { "<leader>tt", "<cmd>Telescope todo-comments<cr>",                 desc = "diagnostics" },
 
         {
             "<leader>f",
