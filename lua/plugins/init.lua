@@ -20,6 +20,7 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
+        event = { "VeryLazy" },
         config = function()
             local configs = require 'nvim-treesitter.configs'
             configs.setup {
@@ -38,13 +39,17 @@ return {
     -- Helping indent lines.,
     {
         "lukas-reineke/indent-blankline.nvim",
+        event = "VeryLazy",
         main = "ibl",
-        opts = {},
-        config = function()
-            require("ibl").setup {
+        opts = {
+
                 scope = { enabled = false },
-            }
-        end
+        },
+        -- config = true,
+        -- config = function()
+        --     require("ibl").setup {
+        --     }
+        -- end
     },
 
     { "preservim/tagbar",        lazy = true },
