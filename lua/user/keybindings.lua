@@ -23,6 +23,7 @@ keymap("", "<space>", "<nop>")
 keymap({ "i", "n" }, "<F1>", "<nop>")
 keymap("n", "<C-u>", "<C-u>zz")
 keymap("n", "<C-d>", "<C-d>zz")
+
 keymap("n", "<C-w>x", "<C-w>c")
 
 -- LSP keys
