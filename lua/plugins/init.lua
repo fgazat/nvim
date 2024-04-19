@@ -94,6 +94,7 @@ return {
     {
         'stevearc/oil.nvim',
         opts = {},
+        event = "Syntax",
         -- Optional dependencies
         dependencies = { "nvim-tree/nvim-web-devicons" },
     }
