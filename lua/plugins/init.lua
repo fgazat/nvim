@@ -1,7 +1,7 @@
 return {
     {
         "moll/vim-bbye",
-        event = "BufEnter"
+        cmd = "Bdelete"
     },
     {
         "rcarriga/nvim-notify",
