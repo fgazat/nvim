@@ -9,6 +9,7 @@ local filter = {
     "+locdoc/libs/go",
     "+locdoc/libs/gowiki",
     "+locdoc/libs/godaas",
+    "+locdoc/projects/wl/back",
     "+locdoc/doc/daas-farm/",
     "+locdoc/doc/doccenter/go-sitemap",
     "-library",
@@ -17,13 +18,14 @@ local filter = {
     "+sandbox/tasklet",
     "+yt/go",
     "+noc/go",
-    "+browser/backend/pkg/startrek"
+    -- "+browser/backend/pkg/startrek"
 }
-if string.find(vim.api.nvim_buf_get_name(0), "/arcadia") == nil then
+if string.find(vim.api.nvim_buf_get_name(0), "/goarc") == nil then
     filter = {}
 end
 
 return {
+    -- cmd = { "/Users/azat-fg/.ya/tools/v4/gopls-darwin-arm64/gopls" },
     root_dir = util.root_pattern("go.work", "go.mod", ".git"),
     settings = {
         gopls = {
@@ -41,7 +43,6 @@ return {
             usePlaceholders = true,
             expandWorkspaceToModule = false,
             directoryFilters = filter,
-            subdirWatchPatterns = "on"
         },
     },
 }

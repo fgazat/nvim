@@ -15,6 +15,10 @@ keymap("n", "<leader>pv", vim.cmd.Ex)
 -- keymap('n', '<c-j>', "<c-w>j")
 -- keymap('n', '<c-h>', "<c-w>h")
 keymap('i', '<c-h>', "<nop>")
+-- these two commands jump over several open projects
+-- use <c-t> instead
+keymap('n', '<c-o>', "<nop>")
+keymap('n', '<c-i>', "<nop>")
 -- keymap('n', '<c-k>', "<c-w>k")
 -- keymap('n', '<c-l>', "<c-w>l")
 keymap('i', '<c-l>', "<nop>")
@@ -61,9 +65,6 @@ keymap('n', '<leader><F5>', vim.cmd.UndotreeToggle)
 keymap("n", "<leader>mp", vim.cmd.MarkdownPreview)
 keymap("n", "<leader>ms", vim.cmd.MarkdownPreviewStop)
 
--- keymap("n", "<leader>e", "<cmd>:Ex<cr>")
-keymap("n", "<leader>e", "<cmd>:Oil<cr>")
--- keymap("n", "<leader>e", "<cmd>:NvimTreeOpen<cr>")
 
 
 
@@ -86,10 +87,20 @@ keymap("n", "<leader>rn", vim.lsp.buf.rename)
 
 keymap("n", "<M-f>", "<cmd>Format<cr>")
 -- vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format({ async = true })' ]]
-vim.keymap.set("n", "=", [[<cmd>vertical resize +5<cr>]])   -- make the window biger vertically
-vim.keymap.set("n", "-", [[<cmd>vertical resize -5<cr>]])   -- make the window smaller vertically
-vim.keymap.set("n", "+", [[<cmd>horizontal resize +2<cr>]]) -- make the window bigger horizontally by pressing shift and =
-vim.keymap.set("n", "_", [[<cmd>horizontal resize -2<cr>]]) -- make the window smaller horizontally by pressing shift and -
-vim.keymap.set("n", "-", [[<cmd>vertical resize -5<cr>]])   -- make the window smaller vertically
-vim.keymap.set("n", "+", [[<cmd>horizontal resize +2<cr>]]) -- make the window bigger horizontally by pressing shift and =
-vim.keymap.set("n", "_", [[<cmd>horizontal resize -2<cr>]]) -- make the window smaller horizontally by pressing shift and -
+vim.keymap.set("n", "=", [[<cmd>vertical resize +5<cr>]])
+vim.keymap.set("n", "+", [[<cmd>vertical resize -5<cr>]])
+-- vim.keymap.set("n", "+", [[<cmd>horizontal resize +2<cr>]]) -- make the window bigger horizontally by pressing shift and =
+-- vim.keymap.set("n", "_", [[<cmd>horizontal resize -2<cr>]]) -- make the window smaller horizontally by pressing shift and -
+-- vim.keymap.set("n", "+", [[<cmd>horizontal resize +2<cr>]]) -- make the window bigger horizontally by pressing shift and =
+-- vim.keymap.set("n", "_", [[<cmd>horizontal resize -2<cr>]]) -- make the window smaller horizontally by pressing shift and -
+-- vim.keymap.set("n", "-", [[<cmd>vertical resize -5<cr>]])   -- make the window smaller vertically
+--
+-- keymap("n", "<leader>e", "<cmd>:Ex<cr>")
+-- keymap("n", "-", "<cmd>:Ex<cr>")
+keymap("n", "<leader>e", "<cmd>:Oil<cr>")
+keymap("n", "-", "<cmd>:Oil<cr>")
+-- keymap("n", "<leader>e", "<cmd>:lua MiniFiles.open()<cr>")
+-- keymap("n", "-", "<cmd>:lua MiniFiles.open()<cr>")
+
+
+-- keymap("n", "<leader>e", "<cmd>:NvimTreeOpen<cr>")

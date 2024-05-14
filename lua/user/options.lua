@@ -30,6 +30,7 @@ local options = {
     laststatus = 3,
     showcmd = true,
     ruler = false,
+    autoindent = true,
     relativenumber = true,
     numberwidth = 4,
     signcolumn = "yes",
@@ -51,10 +52,30 @@ vim.opt.shortmess:append "c"
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
-vim.g.netrw_preview   = 1
-vim.g.netrw_liststyle = 3
-vim.g.netrw_winsize   = 20
-vim.g.netrw_banner    = 0
-vim.g.netrw_menu      = 0
+-- vim.g.netrw_preview    = 1
+-- -- vim.g.netrw_liststyle = 3
+-- vim.g.netrw_winsize    = 20
+-- vim.g.netrw_banner     = 0
+-- vim.g.netrw_menu       = 0
+-- vim.g.netrw_fastbrowse = 2
 
 vim.cmd [[ autocmd FileType help wincmd L ]]
+vim.filetype.add({ extension = { templ = "templ" } })
+--
+-- Display diagnostics as virtual text only if not in insert mode
+-- vim.api.nvim_create_autocmd("InsertEnter", {
+--     pattern = "*",
+--     callback = function()
+--         vim.diagnostic.config({
+--             virtual_text = false,
+--         })
+--     end
+-- })
+-- vim.api.nvim_create_autocmd("InsertLeave", {
+--     pattern = "*",
+--     callback = function()
+--         vim.diagnostic.config({
+--             virtual_text = true,
+--         })
+--     end
+-- })

@@ -4,7 +4,7 @@ return {
     opts = function()
         local null_ls = require("null-ls")
         local formatting = null_ls.builtins.formatting
-        -- local diagnostics = null_ls.builtins.diagnostics
+        local diagnostics = null_ls.builtins.diagnostics
         return {
             debug = false,
             sources = {
@@ -20,6 +20,15 @@ return {
                 formatting.gofumpt,
                 -- formatting.goimports,
 
+                formatting.sql_formatter,
+                -- formatting.sqlfluff.with { extra_args = {
+                --     "--dialect",
+                --     "sqlite",
+                -- } },
+                -- diagnostics.sqlfluff.with { extra_args = {
+                --     "--dialect",
+                --     "sqlite",
+                -- } },
                 -- formatting.go
                 -- code_actions.shellchecklines,
                 -- code_actions.gomodifytags,

@@ -14,7 +14,10 @@ local servers = {
     "bufls",
     "marksman",
     -- "eslint",
-    "tsserver"
+    "tsserver",
+    "templ",
+    -- "sqlfluff"
+    -- "checkmake",
 }
 
 local settings = {
@@ -43,6 +46,13 @@ end
 
 local opts = {}
 
+-- require('lspconfig').sqls.setup {
+--     on_attach = function(client, bufnr)
+--         require('sqls').on_attach(client, bufnr)
+--     end
+-- }
+
+
 for _, server in pairs(servers) do
     opts = {
         on_attach = require("user.lsp.handlers").on_attach,
@@ -53,6 +63,12 @@ for _, server in pairs(servers) do
 
     if server == "jsonls" then
         local jsonls_opts = require "user.lsp.settings.jsonls"
+        opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
+    end
+
+
+    if server == "templ" then
+        local jsonls_opts = require "user.lsp.settings.templ"
         opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
     end
 
@@ -111,6 +127,7 @@ for _, server in pairs(servers) do
         local gopls_opts = require "user.lsp.settings.jedi"
         opts = vim.tbl_deep_extend("force", gopls_opts, opts)
     end
+
     lspconfig[server].setup(opts)
     ::continue::
 end
