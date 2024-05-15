@@ -86,18 +86,41 @@ return {
     {
         'stevearc/oil.nvim',
         opts = {
-            -- default_file_explorer = false,
             buf_options = {
                 buflisted = true,
                 bufhidden = "hide",
             },
         },
         config = function()
-            -- Leave netrw on
-            require("oil").setup({ default_file_explorer = false })
-            -- Let oil open directories by default
-            require("oil.config").setup({ default_file_explorer = true })
-            -- Turn off the directory browsing part of netrw manually
+            -- hack to let netrw_gx work https://hello.ru
+            local keymaps = {
+                -- ["g?"] = "actions.show_help",
+                -- ["<CR>"] = "actions.select",
+                -- ["<C-s>"] = "actions.select_vsplit",
+                ["<C-h>"] = false,
+                ["<C-s>"] = false,
+                -- ["<C-t>"] = "actions.select_tab",
+                -- ["<C-p>"] = "actions.preview",
+                -- ["<C-c>"] = "actions.close",
+                -- ["<C-l>"] = "actions.refresh",
+                -- ["-"] = "actions.parent",
+                -- ["_"] = "actions.open_cwd",
+                -- ["`"] = "actions.cd",
+                -- ["~"] = "actions.tcd",
+                -- ["gs"] = "actions.change_sort",
+                -- ["gx"] = "actions.open_external",
+                -- ["g."] = "actions.toggle_hidden",
+                -- ["g\\"] = "actions.toggle_trash",
+            }
+            require("oil").setup({
+                default_file_explorer = false,
+                keymaps = keymaps,
+            })
+
+            require("oil.config").setup({
+                default_file_explorer = true,
+                keymaps = keymaps,
+            })
             if vim.fn.exists("#FileExplorer") then
                 vim.api.nvim_create_augroup("FileExplorer", { clear = true })
             end
@@ -163,11 +186,14 @@ return {
     },
     { "tpope/vim-dadbod", },
     { "kristijanhusak/vim-dadbod-ui", },
-    -- { "kristijanhusak/vim-dadbod-completion" }
-    -- {
-    --     dependencies = {
-    --         "kristijanhusak/vim-dadbod-completion",
-    --     },
-    --     cmd = "DBUI"
-    -- }
+    {
+        "folke/zen-mode.nvim",
+        opts = {
+        },
+        cmd = "ZenMode",
+        keys = {
+            { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen mode" },
+        }
+    },
+    'jghauser/follow-md-links.nvim'
 }
