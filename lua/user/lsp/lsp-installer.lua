@@ -53,6 +53,7 @@ local opts = {}
 -- }
 
 
+
 for _, server in pairs(servers) do
     opts = {
         on_attach = require("user.lsp.handlers").on_attach,
@@ -131,3 +132,5 @@ for _, server in pairs(servers) do
     lspconfig[server].setup(opts)
     ::continue::
 end
+
+lspconfig.marksman.setup{}

@@ -31,6 +31,8 @@ return {
         cmd = "StartupTime"
     },
 
+    { 'echasnovski/mini.statusline', version = '*', config = true },
+
     -- TreeSitter.,
     {
         "nvim-treesitter/nvim-treesitter",
@@ -62,9 +64,9 @@ return {
         },
     },
 
-    { "preservim/tagbar",        lazy = true },
-    { "neovim/nvim-lspconfig",   lazy = true },
-    { "williamboman/mason.nvim", lazy = true },
+    { "preservim/tagbar",            lazy = true },
+    { "neovim/nvim-lspconfig",       lazy = true },
+    { "williamboman/mason.nvim",     lazy = true },
     { "mbbill/undotree" },
     {
         "folke/trouble.nvim",
@@ -138,9 +140,34 @@ return {
             map_c_w = false  -- map <c-w> to delete a pair if possible
         }
     },
-    -- { 'echasnovski/mini.files', version = '*', config = true }
+
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        build = "cd app && yarn install",
+        init = function()
+            vim.g.mkdp_filetypes = { "markdown" }
+        end,
+        keys = {
+            -- { "<leader>ms", vim.cmd.MarkdownPreviewStop, desc = "Zen mode" },
+            { "<leader>m", vim.cmd.MarkdownPreview, desc = "Zen mode" },
+        },
+        ft = { "markdown" },
+    },
+    {
+        "preservim/vim-pencil",
+        init = function()
+            vim.g["pencil#wrapModeDefault"] = "soft"
+            vim.g["pencil#autoformat"] = 1
+        end,
+    },
+    { "tpope/vim-dadbod", },
+    { "kristijanhusak/vim-dadbod-ui", },
+    -- { "kristijanhusak/vim-dadbod-completion" }
     -- {
-    --     'rmagatti/auto-session',
-    --     config = true,
+    --     dependencies = {
+    --         "kristijanhusak/vim-dadbod-completion",
+    --     },
+    --     cmd = "DBUI"
     -- }
 }
