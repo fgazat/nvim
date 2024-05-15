@@ -19,6 +19,7 @@ keymap('i', '<c-h>', "<nop>")
 -- use <c-t> instead
 keymap('n', '<c-o>', "<nop>")
 keymap('n', '<c-i>', "<nop>")
+keymap('n', 'T', "<cmd>tag<cr>")
 -- keymap('n', '<c-k>', "<c-w>k")
 -- keymap('n', '<c-l>', "<c-w>l")
 keymap('i', '<c-l>', "<nop>")
@@ -60,13 +61,6 @@ keymap("n", "<leader>lcd", "<cmd>lua require('cmp').setup.buffer { enabled = fal
 -- local job = vim.fn.jobstart('echo hello', {})
 
 keymap('n', '<leader><F5>', vim.cmd.UndotreeToggle)
--- Markdown
-
-keymap("n", "<leader>mp", vim.cmd.MarkdownPreview)
-keymap("n", "<leader>ms", vim.cmd.MarkdownPreviewStop)
-
-
-
 
 -- keymap('n', '<C-p>', builtin.git_files, {})
 
