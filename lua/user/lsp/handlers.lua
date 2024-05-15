@@ -140,7 +140,6 @@ end
 -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
 -- vim.cmd [[ autocmd BufWritePre *.go :silent! lua vim.lsp.buf.formatting() ]]
 vim.cmd [[ autocmd FileType go setlocal omnifunc=v:lua.vim.lsp.omnifunc ]]
-vim.cmd [[ autocmd FileType markdown lua require('cmp').setup.buffer { enabled = false }]]
 vim.cmd [[ command! LspToggleAutoFormat execute 'lua require("user.lsp.handlers").toggle_format_on_save()' ]]
 
 return M
