@@ -1,10 +1,12 @@
 return {
     "nvimtools/none-ls.nvim",
+
     event = "BufEnter",
     opts = function()
         local null_ls = require("null-ls")
         local formatting = null_ls.builtins.formatting
         local diagnostics = null_ls.builtins.diagnostics
+
         return {
             debug = false,
             sources = {
@@ -21,6 +23,8 @@ return {
                 -- formatting.goimports,
 
                 formatting.sql_formatter,
+                formatting.buf,
+                -- diagnostics.buf,
                 -- formatting.sqlfluff.with { extra_args = {
                 --     "--dialect",
                 --     "sqlite",

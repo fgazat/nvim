@@ -177,13 +177,13 @@ return {
         },
         ft = { "markdown" },
     },
-    {
-        "preservim/vim-pencil",
-        init = function()
-            vim.g["pencil#wrapModeDefault"] = "soft"
-            vim.g["pencil#autoformat"] = 1
-        end,
-    },
+    -- {
+    --     "preservim/vim-pencil",
+    --     init = function()
+    --         vim.g["pencil#wrapModeDefault"] = "soft"
+    --         vim.g["pencil#autoformat"] = 1
+    --     end,
+    -- },
     { "tpope/vim-dadbod", },
     { "kristijanhusak/vim-dadbod-ui", },
     {
@@ -195,5 +195,20 @@ return {
             { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen mode" },
         }
     },
-    'jghauser/follow-md-links.nvim'
+    'jghauser/follow-md-links.nvim',
+    { 'echasnovski/mini.ai', version = '*', config = true },
+    -- {
+    --     "ray-x/go.nvim",
+    --     dependencies = { -- optional packages
+    --         "ray-x/guihua.lua",
+    --         "neovim/nvim-lspconfig",
+    --         "nvim-treesitter/nvim-treesitter",
+    --     },
+    --     config = function()
+    --         require("go").setup()
+    --     end,
+    --     event = { "CmdlineEnter" },
+    --     ft = { "go", 'gomod' },
+    --     build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+    -- }
 }

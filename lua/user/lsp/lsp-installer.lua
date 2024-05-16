@@ -11,7 +11,7 @@ local servers = {
     "pyright",
     "bashls",
     "gopls",
-    "bufls",
+    -- "bufls",
     "marksman",
     -- "eslint",
     "tsserver",
