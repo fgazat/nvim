@@ -1,3 +1,16 @@
+-- return {
+--     'navarasu/onedark.nvim',
+--     config = function()
+--         require('onedark').setup {
+--             style = 'warm',
+--             transparent = true,
+--         }
+--         require('onedark').load()
+--     end
+-- }
+
+
+
 return {
     "sainnhe/gruvbox-material",
     priority = 1000,
@@ -16,6 +29,10 @@ return {
         vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
     end,
 }
+
+
+
+
 -- return {
 --     "folke/tokyonight.nvim",
 --     lazy = false,
