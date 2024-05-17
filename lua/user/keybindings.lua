@@ -95,9 +95,3 @@ keymap("n", "<leader>e", "<cmd>:Oil<cr>")
 keymap("n", "-", "<cmd>:Oil<cr>")
 -- keymap("n", "<leader>e", "<cmd>:lua MiniFiles.open()<cr>")
 -- keymap("n", "-", "<cmd>:lua MiniFiles.open()<cr>")
-
-
--- keymap("n", "<leader>e", "<cmd>:NvimTreeOpen<cr>")
---
-            -- { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen mode" },
--- keymap("n", "<cmd>ZenMode<cr>")

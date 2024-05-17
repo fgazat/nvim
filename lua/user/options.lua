@@ -2,7 +2,6 @@ local options = {
     backup = false,
     clipboard = "unnamedplus",
     cmdheight = 1,
-    completeopt = { "menu", "menuone" },
     conceallevel = 2,
     -- colorcolumn = "120",
     fileencoding = "utf-8",
@@ -46,7 +45,6 @@ local options = {
 
 vim.opt.fillchars = vim.opt.fillchars + 'eob: '
 
-vim.opt.shortmess:append "c"
 
 
 for k, v in pairs(options) do
