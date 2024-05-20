@@ -2,7 +2,7 @@ local options = {
     backup = false,
     clipboard = "unnamedplus",
     cmdheight = 1,
-    conceallevel = 2,
+    conceallevel = 0,
     -- colorcolumn = "120",
     fileencoding = "utf-8",
     encoding = "utf-8",
@@ -38,9 +38,9 @@ local options = {
     scrolloff = 8,
     sidescrolloff = 8,
     textwidth = 0,
-    -- keymap = "russian-jcukenwin",
-    -- iminsert = 0,
-    -- imsearch = 0,
+    keymap = "russian-jcukenwin",
+    iminsert = 0,
+    imsearch = 0,
 }
 
 vim.opt.fillchars = vim.opt.fillchars + 'eob: '
