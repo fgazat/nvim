@@ -2,7 +2,6 @@ return {
     "hrsh7th/nvim-cmp",
     event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
-        { 'VonHeikemen/lsp-zero.nvim', branch = 'v3.x' },
         "onsails/lspkind.nvim",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
@@ -38,10 +37,9 @@ return {
                 end,
             },
             mapping = cmp.mapping.preset.insert {
-                ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
-                ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
-                ["<C-y>"] = cmp.mapping(cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Insert, select = true, }, { "i", "c" }),
-                ["<C-m>"] = cmp.mapping(cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Insert, select = true, }, { "i", "c" }),
+                ["<C-d>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
+                ["<C-u>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
+                ["<C-k>"] = cmp.mapping(cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Insert, select = true, }, { "i", "c" }),
                 ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
             },
             sources = {
@@ -49,6 +47,17 @@ return {
                 { name = "path" },
                 { name = "buffer" },
                 { name = "nvim_lsp_signature_help" },
+            },
+            window = {
+                -- documentation = false,
+                documentation = {
+                    border = "rounded",
+                    winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+                },
+                completion = {
+                    border = "rounded",
+                    winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+                },
             },
         }
 
@@ -78,13 +87,13 @@ return {
             loadfile(ft_path)()
         end
 
-        vim.keymap.set({ "i", "s" }, "<c-k>", function()
+        vim.keymap.set({ "i", "s" }, "<c-l>", function()
             if ls.expand_or_jumpable() then
                 ls.expand_or_jump()
             end
         end, { silent = true })
 
-        vim.keymap.set({ "i", "s" }, "<c-j>", function()
+        vim.keymap.set({ "i", "s" }, "<c-h>", function()
             if ls.jumpable(-1) then
                 ls.jump(-1)
             end

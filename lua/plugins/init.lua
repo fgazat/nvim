@@ -115,11 +115,54 @@ return {
             require("oil").setup({
                 default_file_explorer = false,
                 keymaps = keymaps,
+                view_options = {
+                    -- Show files and directories that start with "."
+                    show_hidden = false,
+                    -- This function defines what is considered a "hidden" file
+                    -- is_hidden_file = function(name, bufnr)
+                    -- local _, type = vim.fs.dir(name)
+                    -- vim.print(type)
+                    -- if type == "link" then
+                    --     return true
+                    -- end
+                    -- return vim.startswith(name, "-")
+                    -- end,
+                }
             })
 
             require("oil.config").setup({
                 default_file_explorer = true,
                 keymaps = keymaps,
+                view_options = {
+                    -- Show files and directories that start with "."
+                    show_hidden = false,
+                    -- This function defines what is considered a "hidden" file
+                    is_hidden_file = function(name, bufnr)
+                        local dir = vim.api.nvim_buf_get_name(bufnr)
+
+                        local newPath = dir.gsub(dir, "oil://", "")
+
+                        local function is_symlink(filepath)
+                            local lstat = vim.uv.fs_lstat(filepath)
+                            if lstat then
+                                return lstat.type == 'link'
+                            else
+                                print("Error: Could not retrieve file attributes for " .. filepath)
+                                return false
+                            end
+                        end
+                        local function join_paths(dirname, filename)
+                            local sep = package.config:sub(1, 1) -- This gives the path separator ('/' or '\')
+                            return dirname .. sep .. filename
+                        end
+
+                        local newPath = join_paths(newPath, name)
+                        if is_symlink(newPath) then
+                            return true
+                        end
+                        return vim.startswith(name, ".")
+                    end,
+                }
             })
             if vim.fn.exists("#FileExplorer") then
                 vim.api.nvim_create_augroup("FileExplorer", { clear = true })
@@ -197,18 +240,5 @@ return {
     },
     'jghauser/follow-md-links.nvim',
     { 'echasnovski/mini.ai', version = '*', config = true },
-    {
-        'dhruvmanila/browser-bookmarks.nvim',
-        version = '*',
-        opts = {
-            selected_browser = 'brave'
-        },
-        dependencies = {
-            'nvim-telescope/telescope.nvim',
-        },
-        keys = {
-            { "<leader>a", vim.cmd.BrowserBookmarks, desc = "Zen mode" },
-        }
-    },
     "onsails/lspkind.nvim",
 }

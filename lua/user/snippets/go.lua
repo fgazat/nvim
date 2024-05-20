@@ -9,6 +9,6 @@ local fmt = require("luasnip.extras.fmt").fmt
 
 ls.add_snippets("go", {
     s("ife", fmt("if err := {}; err != nil {{\
-    {}\
+    return {}\
 }}", { i(1), i(0) })),
 })
