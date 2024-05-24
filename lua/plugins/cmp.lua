@@ -37,9 +37,9 @@ return {
                 end,
             },
             mapping = cmp.mapping.preset.insert {
-                ["<C-d>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
-                ["<C-u>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
-                ["<C-k>"] = cmp.mapping(cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Insert, select = true, }, { "i", "c" }),
+                ["<C-j>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
+                ["<C-k>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
+                ["<C-y>"] = cmp.mapping(cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Insert, select = true, }, { "i", "c" }),
                 ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
             },
             sources = {

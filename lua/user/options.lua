@@ -38,25 +38,19 @@ local options = {
     scrolloff = 8,
     sidescrolloff = 8,
     textwidth = 0,
-    keymap = "russian-jcukenwin",
-    iminsert = 0,
-    imsearch = 0,
+    -- keymap = "russian-jcukenwin",
+    -- iminsert = 0,
+    -- imsearch = 0,
 }
 
 vim.opt.fillchars = vim.opt.fillchars + 'eob: '
 
 
-
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
--- vim.g.netrw_preview    = 1
--- -- vim.g.netrw_liststyle = 3
--- vim.g.netrw_winsize    = 20
--- vim.g.netrw_banner     = 0
--- vim.g.netrw_menu       = 0
--- vim.g.netrw_fastbrowse = 2
 
+-- to show on the right side
 vim.cmd [[ autocmd FileType help wincmd L ]]
 vim.filetype.add({ extension = { templ = "templ" } })
 --
