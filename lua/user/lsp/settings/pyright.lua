@@ -12,6 +12,7 @@ return {
                     reportOptionalOperand = "none",
                     reportOptionalSubscript = "none",
                     reportOptionalIterable = "none",
+                    reportAttributeAccessIssue = "none",
                 }
             },
         },

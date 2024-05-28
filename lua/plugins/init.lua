@@ -239,7 +239,7 @@ return {
         }
     },
     'jghauser/follow-md-links.nvim',
-    { 'echasnovski/mini.ai', version = '*', config = true },
+    { 'echasnovski/mini.ai',               version = '*', config = true },
     "onsails/lspkind.nvim",
     {
         'dfendr/clipboard-image.nvim',
@@ -265,4 +265,5 @@ return {
             }
         end
     },
+    { "lukas-reineke/cmp-under-comparator" }
 }

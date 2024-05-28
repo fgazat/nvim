@@ -71,3 +71,8 @@ vim.filetype.add({ extension = { templ = "templ" } })
 --         })
 --     end
 -- })
+vim.filetype.add({
+    filename = {
+        ["ya.make"] = "cmake",
+    },
+})

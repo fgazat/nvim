@@ -9,13 +9,14 @@ local servers = {
     "html",
     "lua_ls",
     "pyright",
+    -- "pylsp",
     "bashls",
     "gopls",
-    -- "bufls",
     "marksman",
-    -- "eslint",
     "tsserver",
     "templ",
+    -- "bufls",
+    -- "eslint",
     -- "sqlfluff"
     -- "checkmake",
 }

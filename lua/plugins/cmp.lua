@@ -9,7 +9,7 @@ return {
         "L3MON4D3/LuaSnip",         --snippet engine,
         "saadparwaiz1/cmp_luasnip", -- snippet completions,
         'kristijanhusak/vim-dadbod-completion',
-        'hrsh7th/cmp-nvim-lsp-signature-help',
+        -- 'hrsh7th/cmp-nvim-lsp-signature-help',
         -- "hrsh7th/cmp-cmdline",
         -- "hrsh7th/cmp-emoji",
         -- "hrsh7th/cmp-nvim-lua",
@@ -24,6 +24,7 @@ return {
 
         local cmp = require "cmp"
 
+        local compare = require "cmp.config.compare"
         -- require("luasnip/loaders/from_vscode").lazy_load()
 
         cmp.setup {
@@ -46,7 +47,7 @@ return {
                 { name = "nvim_lsp" },
                 { name = "path" },
                 { name = "buffer" },
-                { name = "nvim_lsp_signature_help" },
+                -- { name = "nvim_lsp_signature_help" },
             },
             window = {
                 -- documentation = false,
@@ -59,6 +60,35 @@ return {
                     winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
                 },
             },
+            sorting = {
+                priority_weight = 2,
+                comparators = {
+                    -- require("copilot_cmp.comparators").prioritize,
+                    -- require("copilot_cmp.comparators").score,
+                    compare.offset,
+                    compare.exact,
+                    -- compare.scopes,
+                    compare.score,
+                    compare.recently_used,
+                    compare.locality,
+                    -- compare.kind,
+                    compare.sort_text,
+                    compare.length,
+                    compare.order,
+                    -- require("copilot_cmp.comparators").prioritize,
+                    -- require("copilot_cmp.comparators").score,
+                },
+            },
+            -- sorting = {
+            --     comparators = {
+            --         cmp.config.compare.offset,
+            --         cmp.config.compare.exact,
+            --         cmp.config.compare.score,
+            --         cmp.config.compare.recently_used,
+            --         require("cmp-under-comparator").under,
+            --         cmp.config.compare.kind,
+            --     },
+            -- },
         }
 
         cmp.setup.filetype({ "sql" }, {
