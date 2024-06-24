@@ -53,7 +53,7 @@ end
 -- to show on the right side
 vim.cmd [[ autocmd FileType help wincmd L ]]
 vim.filetype.add({ extension = { templ = "templ" } })
---
+vim.filetype.add({ filename = { ["ya.make"] = "cmake", }, })
 -- Display diagnostics as virtual text only if not in insert mode
 -- vim.api.nvim_create_autocmd("InsertEnter", {
 --     pattern = "*",
@@ -71,8 +71,3 @@ vim.filetype.add({ extension = { templ = "templ" } })
 --         })
 --     end
 -- })
-vim.filetype.add({
-    filename = {
-        ["ya.make"] = "cmake",
-    },
-})

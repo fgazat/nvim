@@ -17,8 +17,8 @@ keymap("n", "<leader>pv", vim.cmd.Ex)
 keymap('i', '<c-h>', "<nop>")
 -- these two commands jump over several open projects
 -- use <c-t> instead
-keymap('n', '<c-o>', "<nop>")
-keymap('n', '<c-i>', "<nop>")
+-- keymap('n', '<c-o>', "<nop>")
+-- keymap('n', '<c-i>', "<nop>")
 keymap('n', 'T', "<cmd>tag<cr>")
 -- keymap('n', '<c-k>', "<c-w>k")
 -- keymap('n', '<c-l>', "<c-w>l")

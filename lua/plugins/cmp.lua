@@ -25,7 +25,7 @@ return {
         local cmp = require "cmp"
 
         local compare = require "cmp.config.compare"
-        -- require("luasnip/loaders/from_vscode").lazy_load()
+        require("luasnip/loaders/from_vscode").lazy_load()
 
         cmp.setup {
             -- completion = {
@@ -103,9 +103,9 @@ return {
                 { name = "luasnip" },
                 { name = "path" },
             },
-            mapping = cmp.mapping.preset.insert {
-                ["<CR>"] = cmp.mapping.confirm { select = true },
-            }
+            -- mapping = cmp.mapping.preset.insert {
+            --     -- ["<CR>"] = cmp.mapping.confirm { select = true },
+            -- }
         })
         local ls = require "luasnip"
         ls.config.set_config {

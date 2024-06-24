@@ -5,6 +5,7 @@ local util = require "lspconfig.util"
 
 local filter = {
     "-",
+    "+infra/infractl/cli",
     "+locdoc/doc_tools",
     "+locdoc/libs/go",
     "+locdoc/libs/gowiki",
@@ -12,6 +13,7 @@ local filter = {
     "+locdoc/projects/wl/back",
     "+locdoc/doc/daas-farm/",
     "+locdoc/doc/doccenter/go-sitemap",
+    "+junk/azat-fg",
     "-library",
     "+library/go",
     "+tasklet",
@@ -20,7 +22,7 @@ local filter = {
     "+noc/go",
     -- "+browser/backend/pkg/startrek"
 }
-if string.find(vim.api.nvim_buf_get_name(0), "/goarc") == nil then
+if string.find(vim.api.nvim_buf_get_name(0), "/goarc") == nil and string.find(vim.api.nvim_buf_get_name(0), "/arcadia") then
     filter = {}
 end
 
