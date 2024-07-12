@@ -4,6 +4,8 @@ return {
         event = { "InsertEnter" },
         dependencies = {
             "onsails/lspkind.nvim",
+
+            -- "lukas-reineke/cmp-under-comparator",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-nvim-lsp",
@@ -70,6 +72,8 @@ return {
                         compare.exact,
                         -- compare.scopes,
                         compare.score,
+
+                        -- require("cmp-under-comparator").under,
                         compare.recently_used,
                         compare.locality,
                         -- compare.kind,

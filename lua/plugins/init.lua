@@ -265,7 +265,6 @@ return {
             }
         end
     },
-    { "lukas-reineke/cmp-under-comparator" },
     {
         "ellisonleao/glow.nvim",
         config = true,
