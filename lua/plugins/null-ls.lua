@@ -12,7 +12,7 @@ return {
             sources = {
                 formatting.prettier.with {
                     disabled_filetypes = { "markdown" },
-                    extra_filetypes = { "toml", "solidity", "yaml", "json" },
+                    extra_filetypes = { "toml", "solidity", "yaml", "json", "xml" },
                     extra_args = { "--single-quote", "--jsx-single-quote", "--print-width=120", "--prose-wrap=always" },
                 },
                 formatting.black.with { extra_args = { "--line-length=120" } },
@@ -21,6 +21,7 @@ return {
                 formatting.gofmt,
                 formatting.gofumpt,
                 -- formatting.goimports,
+                -- formatting.xmlformat,
 
                 formatting.sql_formatter,
                 formatting.buf,

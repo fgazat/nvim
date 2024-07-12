@@ -11,20 +11,12 @@ keymap("v", "J", ":m '>+1<CR>gv=gv")
 keymap("v", "K", ":m '<-2<CR>gv=gv")
 
 keymap("n", "<leader>pv", vim.cmd.Ex)
+keymap("", "<space>", "<nop>")
 
--- keymap('n', '<c-j>', "<c-w>j")
--- keymap('n', '<c-h>', "<c-w>h")
 keymap('i', '<c-h>', "<nop>")
--- these two commands jump over several open projects
--- use <c-t> instead
--- keymap('n', '<c-o>', "<nop>")
--- keymap('n', '<c-i>', "<nop>")
 keymap('n', 'T', "<cmd>tag<cr>")
--- keymap('n', '<c-k>', "<c-w>k")
--- keymap('n', '<c-l>', "<c-w>l")
 keymap('i', '<c-l>', "<nop>")
 keymap('i', '<c-.>', "<c-^>", { noremap = true, silent = true })
-keymap("", "<space>", "<nop>")
 keymap({ "i", "n" }, "<F1>", "<nop>")
 keymap("n", "<C-u>", "<C-u>zz")
 keymap("n", "<C-d>", "<C-d>zz")
@@ -32,8 +24,6 @@ keymap("n", "<C-d>", "<C-d>zz")
 keymap("n", "<C-w>x", "<C-w>c")
 
 -- LSP keys
-keymap("n", "<leader>c", "<cmd>Bdelete!<cr>")
-keymap("n", "<leader>h", "<cmd>nohlsearch<cr>")
 keymap("n", "<leader>xx", "<cmd>Trouble<cr>")
 keymap("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>")
 keymap("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>")
