@@ -1,15 +1,12 @@
 return {
     settings = {
         python = {
-            -- exclude = { '.venv' },
-            -- venvPath = ".",
-            -- venv = ".venv",
             analysis = {
                 diagnosticSeverityOverrides = {
                     reportGeneralTypeIssues = "none",
                     reportReturnType = "none",
-                    reportOptionalMemberAccess = "none",
                     reportOptionalOperand = "none",
+                    reportOptionalMemberAccess = false,
                     reportOptionalSubscript = "none",
                     reportOptionalIterable = "none",
                     reportAttributeAccessIssue = "none",

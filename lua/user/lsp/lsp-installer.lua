@@ -9,7 +9,6 @@ local servers = {
     "html",
     "lua_ls",
     "pyright",
-    -- "pylsp",
     "bashls",
     "gopls",
     "marksman",
@@ -47,12 +46,6 @@ end
 
 local opts = {}
 
--- require('lspconfig').sqls.setup {
---     on_attach = function(client, bufnr)
---         require('sqls').on_attach(client, bufnr)
---     end
--- }
-
 
 
 for _, server in pairs(servers) do
@@ -84,11 +77,6 @@ for _, server in pairs(servers) do
         opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
     end
 
-    if server == "pylsp" then
-        local pylsp_opts = require "user.lsp.settings.pylsp"
-        opts = vim.tbl_deep_extend("force", pylsp_opts, opts)
-    end
-
     if server == "pyright" then
         local pyright_opts = require "user.lsp.settings.pyright"
         opts = vim.tbl_deep_extend("force", pyright_opts, opts)
@@ -97,11 +85,6 @@ for _, server in pairs(servers) do
     if server == "bashls" then
         local pyright_opts = require "user.lsp.settings.bash"
         opts = vim.tbl_deep_extend("force", pyright_opts, opts)
-    end
-
-    if server == "jedi_language_server" then
-        local jedi_opts = require "user.lsp.settings.jedi"
-        opts = vim.tbl_deep_extend("force", jedi_opts, opts)
     end
 
     if server == "groovyls" then
@@ -124,14 +107,8 @@ for _, server in pairs(servers) do
         opts = vim.tbl_deep_extend("force", gopls_opts, opts)
     end
 
-    if server == "jedi-language-server" then
-        server = "jedi_language_server"
-        local gopls_opts = require "user.lsp.settings.jedi"
-        opts = vim.tbl_deep_extend("force", gopls_opts, opts)
-    end
-
     lspconfig[server].setup(opts)
     ::continue::
 end
 
-lspconfig.marksman.setup{}
+lspconfig.marksman.setup {}
