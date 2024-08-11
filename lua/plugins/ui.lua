@@ -44,7 +44,7 @@ return {
                 -- this setting will be helpful if you do not want the PUM and floating win overlap
                 fix_pos = false, -- set to true, the floating window will not auto-close until finish all parameters
                 hint_enable = true, -- virtual hint enable
-                hint_prefix = "🐼 🐸", -- Panda for parameter
+                hint_prefix = "🐼", -- Panda for parameter
                 hint_scheme = "Comment",
                 use_lspsaga = false, -- set to true if you want to use lspsaga popup
                 hi_parameter = "LspSignatureActiveParameter", -- how your parameter will be highlight
@@ -76,7 +76,7 @@ return {
             -- You can also do this inside lsp on_attach
             -- note: on_attach deprecated
             -- require("lsp_signature").on_attach(cfg, bufnr) -- no need to specify bufnr if you don't use toggle_key
-            signature.on_attach(cfg) -- no need to specify bufnr if you don't use toggle_key
+            -- signature.on_attach(cfg) -- no need to specify bufnr if you don't use toggle_key
         end
     }
 }

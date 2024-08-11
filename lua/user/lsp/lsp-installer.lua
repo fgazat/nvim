@@ -14,6 +14,7 @@ local servers = {
     "marksman",
     "tsserver",
     "templ",
+    "htmx",
     -- "bufls",
     -- "eslint",
     -- "sqlfluff"
@@ -63,6 +64,11 @@ for _, server in pairs(servers) do
 
 
     if server == "templ" then
+        local jsonls_opts = require "user.lsp.settings.templ"
+        opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
+    end
+
+    if server == "htmx" then
         local jsonls_opts = require "user.lsp.settings.templ"
         opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
     end
