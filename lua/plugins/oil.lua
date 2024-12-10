@@ -88,7 +88,17 @@ return {
                             return true
                         end
 
-                        return vim.startswith(name, ".")
+                        if vim.startswith(name, "test-results") or
+                            vim.startswith(name, "ya.make") or
+                            vim.startswith(name, "gotest") or
+                            vim.startswith(name, "__pycache__") or
+                            vim.startswith(name, "node_modules") or
+                            vim.startswith(name, ".") then
+                            return true
+                        end
+
+
+                        return false
                     end,
                 }
             })

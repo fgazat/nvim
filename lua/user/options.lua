@@ -54,6 +54,28 @@ end
 vim.cmd [[ autocmd FileType help wincmd L ]]
 vim.filetype.add({ extension = { templ = "templ" } })
 vim.filetype.add({ filename = { ["ya.make"] = "cmake", }, })
+
+vim.opt.formatoptions = 'jcroqlnt'
+
+-- autocmds
+vim.api.nvim_create_autocmd('BufWinEnter', {
+    pattern = { '*.md' },
+    callback = function()
+        vim.opt.textwidth = 80
+        vim.opt.wrap = true
+        vim.opt.linebreak = true
+    end,
+})
+
+vim.api.nvim_create_autocmd({ 'BufWinLeave' }, {
+    pattern = { '*.md' },
+    callback = function()
+        vim.opt.textwidth = 0
+        vim.opt.wrap = false
+        vim.opt.linebreak = false
+    end,
+})
+
 -- Display diagnostics as virtual text only if not in insert mode
 -- vim.api.nvim_create_autocmd("InsertEnter", {
 --     pattern = "*",

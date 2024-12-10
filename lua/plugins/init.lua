@@ -61,14 +61,31 @@ return {
         event = "VeryLazy",
         main = "ibl",
         opts = {
-
             scope = { enabled = false },
         },
     },
 
-    { "preservim/tagbar",            lazy = true },
-    { "neovim/nvim-lspconfig",       lazy = true },
-    { "williamboman/mason.nvim",     lazy = true },
+    { "preservim/tagbar",        lazy = true },
+    {
+        "neovim/nvim-lspconfig",
+        lazy = true,
+        dependencies = {
+            {
+                -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+                -- used for completion, annotations and signatures of Neovim apis
+                "folke/lazydev.nvim",
+                ft = "lua",
+                opts = {
+                    library = {
+                        -- Load luvit types when the `vim.uv` word is found
+                        { path = "luvit-meta/library", words = { "vim%.uv" } },
+                    },
+                },
+            },
+        }
+    },
+
+    { "williamboman/mason.nvim", lazy = true },
     { "mbbill/undotree" },
     {
         "folke/trouble.nvim",
@@ -241,7 +258,7 @@ return {
         }
     },
     'jghauser/follow-md-links.nvim',
-    { 'echasnovski/mini.ai',               version = '*', config = true },
+    { 'echasnovski/mini.ai', version = '*', config = true },
     "onsails/lspkind.nvim",
     {
         'dfendr/clipboard-image.nvim',
@@ -276,4 +293,13 @@ return {
             height_ratio = 0.9,
         }
     },
+    -- {
+    --     'MeanderingProgrammer/render-markdown.nvim',
+    --     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+    --     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+    --     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    --     ---@module 'render-markdown'
+    --     ---@type render.md.UserConfig
+    --     opts = {},
+    -- }
 }

@@ -54,6 +54,13 @@ return {
                 end,
                 desc = "Find buffers",
             },
+            {
+                "gi",
+                function()
+                    require('telescope.builtin').lsp_implementations(require('telescope.themes').get_dropdown({ previewer = false, sort_lastused = true }))
+                end,
+                desc = "Find buffers",
+            },
         },
         opts = {
             defaults = { file_ignore_patterns = { "node_modules" } }

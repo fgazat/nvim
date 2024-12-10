@@ -11,7 +11,7 @@ return {
             debug = false,
             sources = {
                 formatting.prettier.with {
-                    disabled_filetypes = { "markdown" },
+                    disabled_filetypes = { "markdown", "svelte" },
                     extra_filetypes = { "toml", "solidity", "yaml", "json", "xml" },
                     extra_args = { "--single-quote", "--jsx-single-quote", "--print-width=120", "--prose-wrap=always" },
                 },
@@ -25,6 +25,7 @@ return {
 
                 formatting.sql_formatter,
                 formatting.buf,
+                -- diagnostics.mypy,
                 -- diagnostics.buf,
                 -- formatting.sqlfluff.with { extra_args = {
                 --     "--dialect",

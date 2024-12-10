@@ -5,8 +5,8 @@ return {
         dependencies = {
             "onsails/lspkind.nvim",
 
-            -- "lukas-reineke/cmp-under-comparator",
-            "hrsh7th/cmp-buffer",
+            "lukas-reineke/cmp-under-comparator",
+            -- "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-nvim-lsp",
             "L3MON4D3/LuaSnip",         --snippet engine,
@@ -26,7 +26,6 @@ return {
             lspkind.init {}
 
             local cmp = require "cmp"
-            local compare = require "cmp.config.compare"
 
             require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -43,8 +42,8 @@ return {
                 mapping = cmp.mapping.preset.insert {
                     ["<C-j>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
                     ["<C-k>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
-                    ["<C-y>"] = cmp.mapping(cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Insert, select = true, }, { "i", "c" }),
-                    ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+                    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+                    ["<C-Space>"] = cmp.mapping.complete(),
                 },
                 sources = {
                     { name = "nvim_lsp" },
@@ -68,20 +67,14 @@ return {
                     comparators = {
                         -- require("copilot_cmp.comparators").prioritize,
                         -- require("copilot_cmp.comparators").score,
-                        compare.offset,
-                        compare.exact,
-                        -- compare.scopes,
-                        compare.score,
-
-                        -- require("cmp-under-comparator").under,
-                        compare.recently_used,
-                        compare.locality,
-                        -- compare.kind,
-                        compare.sort_text,
-                        compare.length,
-                        compare.order,
-                        -- require("copilot_cmp.comparators").prioritize,
-                        -- require("copilot_cmp.comparators").score,
+                        cmp.config.compare.offset,
+                        cmp.config.compare.exact,
+                        cmp.config.compare.score,
+                        require("cmp-under-comparator").under,
+                        cmp.config.compare.kind,
+                        cmp.config.compare.sort_text,
+                        cmp.config.compare.length,
+                        cmp.config.compare.order,
                     },
                 },
                 -- sorting = {
@@ -94,6 +87,9 @@ return {
                 --         cmp.config.compare.kind,
                 --     },
                 -- },
+                experimental = {
+                    ghost_text = false, -- Optionally enable ghost text
+                },
             }
 
             cmp.setup.filetype({ "sql" }, {

@@ -8,14 +8,17 @@ end
 local servers = {
     "html",
     "lua_ls",
-    "pyright",
+    "pylsp",
+    -- "pyright",
     "bashls",
     "gopls",
     "marksman",
-    "tsserver",
+    "ts_ls",
     "templ",
     "htmx",
-    -- "bufls",
+    "buf_ls",
+    "tailwindcss",
+    "svelte"
     -- "eslint",
     -- "sqlfluff"
     -- "checkmake",
@@ -69,7 +72,16 @@ for _, server in pairs(servers) do
     end
 
     if server == "htmx" then
-        local jsonls_opts = require "user.lsp.settings.templ"
+        local jsonls_opts = require "user.lsp.settings.htmx"
+        opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
+    end
+    if server == "tailwindcss" then
+        local jsonls_opts = require "user.lsp.settings.tailwindcss"
+        opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
+    end
+
+    if server == "svelte" then
+        local jsonls_opts = require "user.lsp.settings.svelte"
         opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
     end
 
@@ -85,6 +97,16 @@ for _, server in pairs(servers) do
 
     if server == "pyright" then
         local pyright_opts = require "user.lsp.settings.pyright"
+        opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+    end
+
+    if server == "pylsp" then
+        local pyright_opts = require "user.lsp.settings.pylsp"
+        opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+    end
+
+    if server == "mypy" then
+        local pyright_opts = require "user.lsp.settings.mypy"
         opts = vim.tbl_deep_extend("force", pyright_opts, opts)
     end
 
@@ -108,7 +130,7 @@ for _, server in pairs(servers) do
         opts = vim.tbl_deep_extend("force", gopls_opts, opts)
     end
 
-    if server == "bufls" then
+    if server == "buf_ls" then
         local gopls_opts = require "user.lsp.settings.buf"
         opts = vim.tbl_deep_extend("force", gopls_opts, opts)
     end
