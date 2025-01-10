@@ -49,7 +49,7 @@ return {
     {
         "numToStr/Comment.nvim",
         config = true,
-        event = "BufEnter",
+        event = "VeryLazy",
     },
 
     "tpope/vim-dadbod",

@@ -79,16 +79,6 @@ return {
                             python = {
                                 analysis = {
                                     typeCheckingMode = "off",
-
-                                    -- diagnosticSeverityOverrides = {
-                                    --     reportGeneralTypeIssues = "none",
-                                    --     reportReturnType = "none",
-                                    --     reportOptionalOperand = "none",
-                                    --     reportOptionalMemberAccess = false,
-                                    --     reportOptionalSubscript = "none",
-                                    --     reportOptionalIterable = "none",
-                                    --     reportAttributeAccessIssue = "none",
-                                    -- }
                                 },
                             },
                         },
@@ -178,7 +168,6 @@ return {
             },
 
             window = {
-                -- documentation = false,
                 documentation = {
                     border = "rounded",
                     winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
