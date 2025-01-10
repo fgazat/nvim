@@ -24,7 +24,6 @@ return {
 
                 formatting.sql_formatter,
                 formatting.buf,
-                -- diagnostics.mypy,
                 -- diagnostics.buf,
                 -- formatting.sqlfluff.with { extra_args = {
                 --     "--dialect",

@@ -1,7 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
-        -- "stevearc/conform.nvim",
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp",
@@ -20,10 +19,6 @@ return {
         "rafamadriz/friendly-snippets", -- a bunch of snippets to use,
     },
     config = function()
-        -- require("conform").setup({
-        --     formatters_by_ft = {
-        --     }
-        -- })
         local cmp = require('cmp')
         local cmp_lsp = require("cmp_nvim_lsp")
 
@@ -37,11 +32,14 @@ return {
 
         require("mason").setup()
 
+        local lspconfig = require("lspconfig")
+
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "html",
                 "lua_ls",
-                "pylsp",
+                -- "pylsp",
+                "pyright",
                 "bashls",
                 "gopls",
                 "marksman",
@@ -60,7 +58,6 @@ return {
                     }
                 end,
                 ["lua_ls"] = function()
-                    local lspconfig = require("lspconfig")
                     lspconfig.lua_ls.setup {
                         capabilities = capabilities,
                         settings = {
@@ -73,9 +70,36 @@ return {
                         }
                     }
                 end,
-                ["gopls"] = function()
-                    local lspconfig = require("lspconfig")
 
+                pyright = function()
+                    lspconfig.pyright.setup {
+                        capabilities = capabilities,
+                        settings = {
+                            python = {
+                                analysis = {
+                                    typeCheckingMode = "off",
+
+                                    -- diagnosticSeverityOverrides = {
+                                    --     reportGeneralTypeIssues = "none",
+                                    --     reportReturnType = "none",
+                                    --     reportOptionalOperand = "none",
+                                    --     reportOptionalMemberAccess = false,
+                                    --     reportOptionalSubscript = "none",
+                                    --     reportOptionalIterable = "none",
+                                    --     reportAttributeAccessIssue = "none",
+                                    -- }
+                                },
+                            },
+                        },
+                    }
+                end,
+
+                pylsp = function()
+                    lspconfig.pylsp.setup {
+                        autostart = false
+                    }
+                end,
+                ["gopls"] = function()
                     local filter = {
                         "-",
                         "+infra/infractl/cli",
@@ -132,7 +156,6 @@ return {
                 end,
             }
         })
-
 
 
         cmp.setup({
