@@ -1,4 +1,5 @@
 return {}
+
 -- return {
 --     'saghen/blink.cmp',
 --     -- optional: provides snippets for the snippet source
@@ -19,18 +20,13 @@ return {}
 --         },
 --
 --
---         appearance = {
---             -- Sets the fallback highlight groups to nvim-cmp's highlight groups
---             -- Useful for when your theme doesn't support blink.cmp
---             -- Will be removed in a future release
---             use_nvim_cmp_as_default = true,
---             -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
---             -- Adjusts spacing to ensure icons are aligned
---             nerd_font_variant = 'mono'
---         },
 --         completion = {
 --             menu = { auto_show = function(ctx) return ctx.mode ~= 'cmdline' end },
---             documentation = { window = { border = 'single' } },
+--             documentation = {
+--                 auto_show = true,
+--                 auto_show_delay_ms = 500,
+--                 window = { border = 'single' }
+--             }
 --         },
 --         signature = { window = { border = 'single' } },
 --
@@ -41,4 +37,59 @@ return {}
 --         },
 --     },
 --     opts_extend = { "sources.default" }
+-- }
+
+-- return {
+--     -- add blink.compat
+--     {
+--         'saghen/blink.compat',
+--         -- use the latest release, via version = '*', if you also use the latest release for blink.cmp
+--         version = '*',
+--         -- lazy.nvim will automatically load the plugin when it's required by blink.cmp
+--         lazy = true,
+--         dependencies = {
+--             { 'L3MON4D3/LuaSnip', version = 'v2.*' },
+--             "rafamadriz/friendly-snippets",
+--         },
+--         -- make sure to set opts so that lazy.nvim calls blink.compat's setup
+--         opts = {
+--             snippets = { preset = 'luasnip' },
+--             -- ensure you have the `snippets` source (enabled by default)
+--             sources = {
+--                 default = { 'lsp', 'path', 'snippets', 'buffer' },
+--             },
+--         }
+--     },
+--     --
+--     {
+--         'saghen/blink.cmp',
+--         version = '0.*',
+--         dependencies = {
+--             -- add source
+--             { 'dmitmel/cmp-digraphs' },
+--         },
+--         sources = {
+--             -- remember to enable your providers here
+--             default = { 'lsp', 'path', 'snippets', 'buffer', 'digraphs' },
+--             providers = {
+--                 -- create provider
+--                 digraphs = {
+--                     name = 'digraphs', -- IMPORTANT: use the same name as you would for nvim-cmp
+--                     module = 'blink.compat.source',
+--
+--                     -- all blink.cmp source config options work as normal:
+--                     score_offset = -3,
+--
+--                     -- this table is passed directly to the proxied completion source
+--                     -- as the `option` field in nvim-cmp's source config
+--                     --
+--                     -- this is NOT the same as the opts in a plugin's lazy.nvim spec
+--                     opts = {
+--                         -- this is an option from cmp-digraphs
+--                         cache_digraphs_on_start = true,
+--                     },
+--                 },
+--             },
+--         },
+--     },
 -- }

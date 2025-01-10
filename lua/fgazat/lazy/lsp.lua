@@ -9,7 +9,7 @@ return {
         "hrsh7th/cmp-cmdline",
         "hrsh7th/nvim-cmp",
 
-        "L3MON4D3/LuaSnip",
+        { 'L3MON4D3/LuaSnip', version = 'v2.*' },
         "saadparwaiz1/cmp_luasnip",
 
         "lukas-reineke/cmp-under-comparator",
@@ -99,7 +99,7 @@ return {
                         autostart = false
                     }
                 end,
-                ["gopls"] = function()
+                gopls = function()
                     local filter = {
                         "-",
                         "+infra/infractl/cli",
@@ -180,9 +180,11 @@ return {
                 -- documentation = false,
                 documentation = {
                     border = "rounded",
+                    winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
                 },
                 completion = {
                     border = "rounded",
+                    winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
                 },
             },
             sources = cmp.config.sources({
