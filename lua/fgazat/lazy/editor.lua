@@ -1,7 +1,7 @@
 return {
     {
         "stevearc/dressing.nvim",
-        lazy = true,
+        event = "VeryLazy",
         init = function()
             ---@diagnostic disable-next-line: duplicate-set-field
             vim.ui.select = function(...)
@@ -21,7 +21,6 @@ return {
         event = "VeryLazy",
         config = function()
             vim.notify = require("notify")
-
             require("notify").setup({
                 background_colour = "#000000",
                 render = "wrapped-compact",
@@ -43,16 +42,20 @@ return {
             scope = { enabled = false },
         },
     },
-
-    { "mbbill/undotree" },
-
     {
         "numToStr/Comment.nvim",
         config = true,
         event = "VeryLazy",
     },
+    {
+        "mbbill/undotree",
+        event = "VeryLazy",
+        keys = {
+            { "<leader>u", vim.cmd.UndotreeToggle, desc = "diagnostics" },
+        }
+    },
 
-    "tpope/vim-dadbod",
-    "kristijanhusak/vim-dadbod-ui",
-    'jghauser/follow-md-links.nvim',
+    { "tpope/vim-dadbod",             event = "VeryLazy" },
+    { "kristijanhusak/vim-dadbod-ui", event = "VeryLazy" },
+
 }

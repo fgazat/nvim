@@ -16,7 +16,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     spec = "fgazat.lazy",
-
     change_detection = { notify = false },
     defaults = {
         -- Set this to `true` to have all your plugins lazy-loaded by default.

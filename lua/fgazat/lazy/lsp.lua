@@ -10,30 +10,28 @@ return {
         "hrsh7th/cmp-cmdline",
         "hrsh7th/nvim-cmp",
 
-        { 'L3MON4D3/LuaSnip', version = 'v2.*' },
+        'L3MON4D3/LuaSnip',
         "saadparwaiz1/cmp_luasnip",
-
-        "lukas-reineke/cmp-under-comparator",
 
         'kristijanhusak/vim-dadbod-completion',
 
-        "rafamadriz/friendly-snippets", -- a bunch of snippets to use,
+        "j-hui/fidget.nvim",
     },
     config = function()
         local cmp = require('cmp')
         local cmp_lsp = require("cmp_nvim_lsp")
 
-        require("luasnip.loaders.from_vscode").lazy_load()
 
+        local lspconfig = require("lspconfig")
         local capabilities = vim.tbl_deep_extend(
             "force",
             {},
             vim.lsp.protocol.make_client_capabilities(),
             cmp_lsp.default_capabilities())
 
-        require("mason").setup()
+        require("fidget").setup({})
 
-        local lspconfig = require("lspconfig")
+        require("mason").setup()
 
         require("mason-lspconfig").setup({
             ensure_installed = {
@@ -214,29 +212,6 @@ return {
                 { name = "path" },
             },
         })
-
-
-        local ls = require "luasnip"
-        ls.config.set_config {
-            history = false,
-            updateevents = "TextChanged,TextChangedI",
-        }
-
-        for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/user/snippets/*.lua", true)) do
-            loadfile(ft_path)()
-        end
-
-        vim.keymap.set({ "i", "s" }, "<c-l>", function()
-            if ls.expand_or_jumpable() then
-                ls.expand_or_jump()
-            end
-        end, { silent = true })
-
-        vim.keymap.set({ "i", "s" }, "<c-h>", function()
-            if ls.jumpable(-1) then
-                ls.jump(-1)
-            end
-        end, { silent = true })
 
         vim.diagnostic.config({
 

@@ -70,5 +70,3 @@ vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
 vim.keymap.set("n", "+", [[<cmd>vertical resize +5<cr>]])
 vim.keymap.set("n", "=", [[<cmd>vertical resize -5<cr>]])
 --
-vim.keymap.set("n", "<leader>e", "<cmd>:Oil<cr>")
-vim.keymap.set("n", "-", "<cmd>:Oil<cr>")

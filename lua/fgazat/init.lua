@@ -41,5 +41,6 @@ autocmd('BufWinLeave', {
 })
 
 vim.cmd [[ autocmd FileType help wincmd L ]]
+-- vim.cmd [[ autocmd FileType go setlocal omnifunc=v:lua.vim.lsp.omnifunc ]]
 vim.filetype.add({ extension = { templ = "templ" } })
 vim.filetype.add({ filename = { ["ya.make"] = "cmake", }, })

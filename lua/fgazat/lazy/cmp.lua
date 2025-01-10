@@ -2,10 +2,12 @@ return {}
 
 -- return {
 --     'saghen/blink.cmp',
+--     event = "InsertEnter",
 --     -- optional: provides snippets for the snippet source
---     dependencies = 'rafamadriz/friendly-snippets',
+--     dependencies = { { 'L3MON4D3/LuaSnip', version = 'v2.*' }, 'rafamadriz/friendly-snippets' },
 --     version = '*',
 --     opts = {
+--         snippets = { preset = 'luasnip' },
 --         -- 'default' for mappings similar to built-in completion
 --         -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
 --         -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
@@ -14,11 +16,23 @@ return {}
 --             preset = 'default',
 --             ['<C-j>'] = { 'select_next', 'fallback' },
 --             ['<C-k>'] = { 'select_prev', 'fallback' },
+--             -- ['<C-l>'] = { 'snippet_forward', 'fallback' },
+--             -- ['<C-h>'] = { 'snippet_backward', 'fallback' },
+--             ['<C-i>'] = { 'fallback' },
 --
+--             cmdline = {
+--                 preset = 'default',
+--                 ['<C-j>'] = { 'select_next', 'fallback' },
+--                 ['<C-k>'] = { 'select_prev', 'fallback' },
+--
+--                 ['<CR>'] = { 'select_and_accept', 'fallback' },
+--             }
+--             --     ['<Tab>'] = { 'select_next', 'fallback' },
+--             --     ['<S-Tab>'] = { 'select_prev', 'fallback' },
+--             -- }
 --             -- -- show with a list of providers
 --             -- ['<C-space>'] = { function(cmp) cmp.show({ providers = { 'snippets' } }) end },
 --         },
---
 --
 --         completion = {
 --             menu = { auto_show = function(ctx) return ctx.mode ~= 'cmdline' end },
@@ -26,6 +40,12 @@ return {}
 --                 auto_show = true,
 --                 auto_show_delay_ms = 500,
 --                 window = { border = 'single' }
+--             },
+--             list = {
+--                 selection = {
+--                     preselect = true,
+--                     auto_insert = function(ctx) return ctx.mode == 'cmdline' end
+--                 }
 --             }
 --         },
 --         signature = { window = { border = 'single' } },
@@ -37,59 +57,4 @@ return {}
 --         },
 --     },
 --     opts_extend = { "sources.default" }
--- }
-
--- return {
---     -- add blink.compat
---     {
---         'saghen/blink.compat',
---         -- use the latest release, via version = '*', if you also use the latest release for blink.cmp
---         version = '*',
---         -- lazy.nvim will automatically load the plugin when it's required by blink.cmp
---         lazy = true,
---         dependencies = {
---             { 'L3MON4D3/LuaSnip', version = 'v2.*' },
---             "rafamadriz/friendly-snippets",
---         },
---         -- make sure to set opts so that lazy.nvim calls blink.compat's setup
---         opts = {
---             snippets = { preset = 'luasnip' },
---             -- ensure you have the `snippets` source (enabled by default)
---             sources = {
---                 default = { 'lsp', 'path', 'snippets', 'buffer' },
---             },
---         }
---     },
---     --
---     {
---         'saghen/blink.cmp',
---         version = '0.*',
---         dependencies = {
---             -- add source
---             { 'dmitmel/cmp-digraphs' },
---         },
---         sources = {
---             -- remember to enable your providers here
---             default = { 'lsp', 'path', 'snippets', 'buffer', 'digraphs' },
---             providers = {
---                 -- create provider
---                 digraphs = {
---                     name = 'digraphs', -- IMPORTANT: use the same name as you would for nvim-cmp
---                     module = 'blink.compat.source',
---
---                     -- all blink.cmp source config options work as normal:
---                     score_offset = -3,
---
---                     -- this table is passed directly to the proxied completion source
---                     -- as the `option` field in nvim-cmp's source config
---                     --
---                     -- this is NOT the same as the opts in a plugin's lazy.nvim spec
---                     opts = {
---                         -- this is an option from cmp-digraphs
---                         cache_digraphs_on_start = true,
---                     },
---                 },
---             },
---         },
---     },
 -- }
