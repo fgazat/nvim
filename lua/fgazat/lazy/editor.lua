@@ -29,10 +29,6 @@ return {
         end
     },
 
-    {
-        "tpope/vim-surround",
-        event = "VeryLazy"
-    },
 
     {
         "lukas-reineke/indent-blankline.nvim",
@@ -43,11 +39,6 @@ return {
         },
     },
     {
-        "numToStr/Comment.nvim",
-        config = true,
-        event = "VeryLazy",
-    },
-    {
         "mbbill/undotree",
         event = "VeryLazy",
         keys = {
@@ -55,6 +46,8 @@ return {
         }
     },
 
+    { "tpope/vim-surround",           event = "VeryLazy" },
+    { "numToStr/Comment.nvim",        event = "VeryLazy", config = true, },
     { "tpope/vim-dadbod",             event = "VeryLazy" },
     { "kristijanhusak/vim-dadbod-ui", event = "VeryLazy" },
 
