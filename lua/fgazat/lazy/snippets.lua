@@ -16,8 +16,6 @@ return {
             updateevents = "TextChanged,TextChangedI",
         }
 
-
-        --- TODO: What is expand?
         vim.keymap.set({ "i", "s" }, "<c-l>", function()
             if ls.expand_or_jumpable() then
                 ls.expand_or_jump()

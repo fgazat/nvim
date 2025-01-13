@@ -9,12 +9,8 @@ return {
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-cmdline",
         "hrsh7th/nvim-cmp",
-
-        'L3MON4D3/LuaSnip',
         "saadparwaiz1/cmp_luasnip",
-
         'kristijanhusak/vim-dadbod-completion',
-
         "j-hui/fidget.nvim",
     },
     config = function()
@@ -28,8 +24,10 @@ return {
             {},
             vim.lsp.protocol.make_client_capabilities(),
             cmp_lsp.default_capabilities())
+        -- capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
+        -- capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-        require("fidget").setup({})
+        -- require("fidget").setup({})
 
         require("mason").setup()
 
@@ -56,6 +54,7 @@ return {
                         capabilities = capabilities
                     }
                 end,
+
                 ["lua_ls"] = function()
                     lspconfig.lua_ls.setup {
                         capabilities = capabilities,
@@ -88,6 +87,7 @@ return {
                         autostart = false
                     }
                 end,
+
                 gopls = function()
                     local filter = {
                         "-",
@@ -136,7 +136,7 @@ return {
                                     rangeVariableTypes = true,
                                 },
                                 staticcheck = true,
-                                -- usePlaceholders = true,
+                                usePlaceholders = true,
                                 expandWorkspaceToModule = false,
                                 directoryFilters = filter,
                             },
@@ -148,15 +148,11 @@ return {
 
 
         cmp.setup({
-            -- preselect = cmp.PreselectMode.None,
             snippet = {
                 expand = function(args)
                     require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
                 end,
             },
-            -- completion = {
-            --     autocomplete = false,
-            -- },
             mapping = cmp.mapping.preset.insert {
                 ["<C-j>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
                 ["<C-k>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
@@ -214,7 +210,6 @@ return {
         })
 
         vim.diagnostic.config({
-
             virtual_text = false,
             -- update_in_insert = true,
             float = {

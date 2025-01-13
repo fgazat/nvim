@@ -9,6 +9,8 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("", "<space>", "<nop>")
+vim.keymap.set("", "<tab>", "<nop>")
+
 
 -- vim.keymap.set('i', '<c-h>', "<nop>")
 vim.keymap.set('i', '<c-h>', '<BS>', { noremap = true, silent = true })
@@ -47,8 +49,6 @@ vim.keymap.set("n", "<leader>lr", "<cmd>LspRestart<CR>")
 vim.keymap.set("n", "<leader>lce", "<cmd>lua require('cmp').setup.buffer { enabled = true }<CR>")
 vim.keymap.set("n", "<leader>lcd", "<cmd>lua require('cmp').setup.buffer { enabled = false }<CR>")
 
-vim.keymap.set('n', '<leader><F5>', vim.cmd.UndotreeToggle)
-
 
 
 vim.keymap.set({ "n", "v", "i" }, "<S-Up>", "<Up>")
@@ -62,7 +62,7 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 vim.keymap.set("n", "gs", vim.lsp.buf.signature_help)
 
 
-vim.keymap.set("i", "<C-i>", function() vim.lsp.buf.signature_help() end)
+vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help)
 vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action)
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
 
