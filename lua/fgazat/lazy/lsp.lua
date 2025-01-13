@@ -5,7 +5,7 @@ return {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-buffer",
+        -- "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-cmdline",
         "hrsh7th/nvim-cmp",
@@ -175,7 +175,7 @@ return {
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' }, -- For luasnip users.
             }, {
-                { name = 'buffer' },
+                -- { name = 'buffer' },
             }),
 
             sorting = {
@@ -198,7 +198,7 @@ return {
         cmp.setup.filetype({ "sql" }, {
             sources = {
                 { name = "vim-dadbod-completion" },
-                { name = "buffer" },
+                -- { name = "buffer" },
             }
         })
         cmp.setup.filetype({ "markdown" }, {
@@ -224,14 +224,10 @@ return {
 
         vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
             border = "rounded",
-            -- width = 100,
-            -- height = 30,
         })
 
         vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
             border = "rounded",
-            -- width = 100,
-            -- height = 30,
         })
     end
 }

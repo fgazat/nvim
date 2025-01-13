@@ -1,6 +1,7 @@
 return {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
+    event = "VeryLazy",
     tag = '0.1.8',
     dependencies = {
         "nvim-lua/plenary.nvim",
@@ -62,7 +63,7 @@ return {
         },
     },
     opts = {
-        defaults = { file_ignore_patterns = { "node_modules" } }
+        defaults = { file_ignore_patterns = { "node_modules", "__pycache__" } }
     },
     config = function()
         local actions = require("telescope.actions")
@@ -73,7 +74,8 @@ return {
                         ["<C-j>"] = actions.move_selection_next,
                         ["<C-k>"] = actions.move_selection_previous
                     }
-                }
+                },
+                file_ignore_patterns = { "node_modules", "__pycache__" }
             }
         }
     end

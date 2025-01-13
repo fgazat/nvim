@@ -5,8 +5,9 @@ return {
     config = function()
         require("nvim-treesitter.configs").setup({
             -- A list of parser names, or "all"
-            ensure_installed = {
-                "vimdoc", "javascript", "typescript", "c", "lua", "jsdoc", "bash", "go" , "python"},
+            ensure_installed = 'all',
+            -- установка phpdoc падает на m1
+            ignore_install = { 'phpdoc', 'smali' },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
             sync_install = false,
@@ -34,7 +35,7 @@ return {
                         vim.notify(
                             "File larger than 100KB treesitter disabled for performance",
                             vim.log.levels.WARN,
-                            {title = "Treesitter"}
+                            { title = "Treesitter" }
                         )
                         return true
                     end
@@ -52,7 +53,7 @@ return {
         treesitter_parser_config.templ = {
             install_info = {
                 url = "https://github.com/vrischmann/tree-sitter-templ.git",
-                files = {"src/parser.c", "src/scanner.c"},
+                files = { "src/parser.c", "src/scanner.c" },
                 branch = "master",
             },
         }

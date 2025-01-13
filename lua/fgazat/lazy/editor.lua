@@ -51,4 +51,12 @@ return {
     { "tpope/vim-dadbod",             event = "VeryLazy" },
     { "kristijanhusak/vim-dadbod-ui", event = "VeryLazy" },
 
+    {
+        "Wansmer/treesj",
+        keys = {
+            { "<leader>j", "<cmd>TSJToggle<cr>", desc = "Join Toggle" },
+        },
+        opts = { use_default_keymaps = false },
+    },
+
 }

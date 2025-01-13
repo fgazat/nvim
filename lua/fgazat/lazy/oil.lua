@@ -1,6 +1,7 @@
 return {
     'stevearc/oil.nvim',
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    event = "VeryLazy",
     keys = {
         { "<leader>e", vim.cmd.Oil, "Oil" },
         { "-",         vim.cmd.Oil, "Oil" },
