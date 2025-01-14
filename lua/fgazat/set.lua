@@ -42,7 +42,7 @@ local options = {
     -- imsearch = 0,
 }
 
--- vim.opt.fillchars = vim.opt.fillchars + 'eob: '
+vim.opt.fillchars = vim.opt.fillchars + 'eob: '
 
 
 for k, v in pairs(options) do
