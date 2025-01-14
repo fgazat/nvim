@@ -1,22 +1,21 @@
 return {
     "nvimtools/none-ls.nvim",
-
-    event = "BufEnter",
+    event = "VeryLazy",
     opts = function()
         local null_ls = require("null-ls")
         local formatting = null_ls.builtins.formatting
-        local diagnostics = null_ls.builtins.diagnostics
+        -- local diagnostics = null_ls.builtins.diagnostics
 
         return {
             debug = false,
             sources = {
                 formatting.prettier.with {
-                    disabled_filetypes = { "markdown" },
+                    disabled_filetypes = { "markdown", "svelte" },
                     extra_filetypes = { "toml", "solidity", "yaml", "json", "xml" },
                     extra_args = { "--single-quote", "--jsx-single-quote", "--print-width=120", "--prose-wrap=always" },
                 },
                 formatting.black.with { extra_args = { "--line-length=120" } },
-                formatting.isort,
+                -- formatting.isort,
 
                 formatting.gofmt,
                 formatting.gofumpt,

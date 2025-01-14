@@ -1,5 +1,6 @@
 return {
     "ThePrimeagen/harpoon",
+    event = "VeryLazy",
     commit = "7fd419b3231da33f32a5d31d1f4a06d61f815556",
     keys = {
         { "<leader>a", function() require("harpoon.mark").add_file() end,        desc = "Add file" },

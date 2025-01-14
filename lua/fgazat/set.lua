@@ -34,40 +34,19 @@ local options = {
     numberwidth = 4,
     signcolumn = "yes",
     wrap = false,
-    wrapmargin = 5,
+    wrapmargin = 0,
     scrolloff = 8,
     sidescrolloff = 8,
-    textwidth = 0,
     -- keymap = "russian-jcukenwin",
     -- iminsert = 0,
     -- imsearch = 0,
 }
 
-vim.opt.fillchars = vim.opt.fillchars + 'eob: '
+-- vim.opt.fillchars = vim.opt.fillchars + 'eob: '
 
 
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
 
--- to show on the right side
-vim.cmd [[ autocmd FileType help wincmd L ]]
-vim.filetype.add({ extension = { templ = "templ" } })
-vim.filetype.add({ filename = { ["ya.make"] = "cmake", }, })
--- Display diagnostics as virtual text only if not in insert mode
--- vim.api.nvim_create_autocmd("InsertEnter", {
---     pattern = "*",
---     callback = function()
---         vim.diagnostic.config({
---             virtual_text = false,
---         })
---     end
--- })
--- vim.api.nvim_create_autocmd("InsertLeave", {
---     pattern = "*",
---     callback = function()
---         vim.diagnostic.config({
---             virtual_text = true,
---         })
---     end
--- })
+vim.opt.formatoptions = 'jcroqlnt'
