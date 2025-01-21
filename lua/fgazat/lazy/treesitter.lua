@@ -17,7 +17,12 @@ return {
             auto_install = true,
 
             indent = {
-                enable = false
+                enable = function(lang, _)
+                    if lang == "markdown" then
+                        return true
+                    end
+                    return false
+                end
             },
 
             highlight = {
