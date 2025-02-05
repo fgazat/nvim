@@ -1,14 +1,15 @@
+function ColorMyPencils(color)
+    color = color or "kanagawa"
+    vim.cmd.colorscheme(color)
+
+    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+end
 
 return {
-    -- {
-    --     "craftzdog/solarized-osaka.nvim",
-    --     lazy = false,
-    --     priority = 1000,
-    --     opts = {},
-    -- },
     {
         "rebelot/kanagawa.nvim",
-        lazy=false,
+        lazy = false,
         config = function()
             require('kanagawa').setup({
                 compile = false,  -- enable compiling the colorscheme
@@ -61,20 +62,4 @@ return {
 --             vim.cmd("colorscheme rose-pine-moon")
 --         end
 --     },
---     -- {
---     --     "EdenEast/nightfox.nvim",
---     --     lazy = false,
---     --     priority = 1000,
---     --     config = function()
---     --         require('nightfox').setup({
---     --             options = {
---     --                 variant = "dark",
---     --                 transparent = true,
---     --             }
---     --         })
---     --
---     --         vim.cmd("colorscheme nightfox")
---     --     end
---     -- }
---
 -- }
