@@ -69,3 +69,6 @@ vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
 vim.keymap.set("n", "+", [[<cmd>vertical resize +5<cr>]])
 vim.keymap.set("n", "=", [[<cmd>vertical resize -5<cr>]])
 --
+vim.keymap.set("n", "<leader>mc", function()
+  vim.wo.conceallevel = vim.wo.conceallevel == 0 and 2 or 0
+end, { silent = true })

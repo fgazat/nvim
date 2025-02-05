@@ -1,8 +1,8 @@
 return {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
-    -- event = "VeryLazy",
-    lazy = false,
+    event = "VeryLazy",
+    -- lazy = ,
     tag = '0.1.8',
     dependencies = {
         "nvim-lua/plenary.nvim",
@@ -77,7 +77,25 @@ return {
                     }
                 },
                 file_ignore_patterns = { "node_modules", "__pycache__" }
+            },
+            pickers = {
+                colorscheme = {
+                    enable_preview = true
+                }
             }
         }
+        local telescope = require('telescope.builtin')
+
+        function SearchMarkdownLinks()
+            telescope.live_grep({
+                search = "%[.*%]%((.-)%)",
+                prompt_title = "Search Markdown Links",
+                use_regex = true
+            })
+        end
+
+        vim.api.nvim_set_keymap('n', '<leader>ml', '<cmd>lua SearchMarkdownLinks()<CR>',
+            { noremap = true, silent = true }
+        )
     end
 }

@@ -38,18 +38,12 @@ return {
             scope = { enabled = false },
         },
     },
-    {
-        "mbbill/undotree",
-        event = "VeryLazy",
-        keys = {
-            { "<leader>u", vim.cmd.UndotreeToggle, desc = "diagnostics" },
-        }
-    },
-
+    { "mbbill/undotree",              event = "VeryLazy", keys = { { "<leader>u", vim.cmd.UndotreeToggle, desc = "diagnostics" } } },
     { "tpope/vim-surround",           event = "VeryLazy" },
     { "numToStr/Comment.nvim",        event = "VeryLazy", config = true, },
     { "tpope/vim-dadbod",             event = "VeryLazy" },
     { "kristijanhusak/vim-dadbod-ui", event = "VeryLazy" },
+
 
     {
         "Wansmer/treesj",
@@ -58,5 +52,8 @@ return {
         },
         opts = { use_default_keymaps = false },
     },
-
+    {
+        'jghauser/follow-md-links.nvim',
+        event = "VeryLazy",
+    }
 }
