@@ -11,7 +11,7 @@ return {
         "hrsh7th/nvim-cmp",
         "saadparwaiz1/cmp_luasnip",
         'kristijanhusak/vim-dadbod-completion',
-        "j-hui/fidget.nvim",
+        -- "j-hui/fidget.nvim",
     },
     config = function()
         local cmp = require('cmp')

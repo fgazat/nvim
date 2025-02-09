@@ -39,7 +39,9 @@ return {
         },
     },
     { "mbbill/undotree",              event = "VeryLazy", keys = { { "<leader>u", vim.cmd.UndotreeToggle, desc = "diagnostics" } } },
+
     { "tpope/vim-surround",           event = "VeryLazy" },
+
     { "numToStr/Comment.nvim",        event = "VeryLazy", config = true, },
     { "tpope/vim-dadbod",             event = "VeryLazy" },
     { "kristijanhusak/vim-dadbod-ui", event = "VeryLazy" },

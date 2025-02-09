@@ -31,7 +31,6 @@ vim.keymap.set("n", "<leader>xq", "<cmd>Trouble quickfix<cr>")
 vim.keymap.set("n", "gR", "<cmd>Trouble lsp_references<cr>")
 
 vim.keymap.set("n", "<leader>h", vim.cmd.nohlsearch)
-vim.keymap.set("n", "<leader>c", vim.cmd.Bdelete)
 
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
