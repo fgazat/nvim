@@ -47,7 +47,7 @@ return {
         priority = 1000,
         config = function()
             require('rose-pine').setup({
-                variant = "dark",
+                -- variant = "dark",
                 disable_background = true,
                 styles = {
                     italic = false,
@@ -55,7 +55,7 @@ return {
                 },
             })
 
-            vim.cmd("colorscheme rose-pine-moon")
+            vim.cmd("colorscheme rose-pine-main")
         end
     },
 }
