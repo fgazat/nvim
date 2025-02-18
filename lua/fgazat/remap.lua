@@ -43,7 +43,12 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 -- LSP keymaps
 vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format({ async = true }) end)
-vim.keymap.set("n", "<leader>lr", "<cmd>LspRestart<CR>")
+
+vim.keymap.set("n", "<leader>lr", function()
+    vim.cmd("LspRestart")
+    vim.notify("LSP restarted")
+end)
+-- vim.keymap.set("n", "<leader>lr", "<cmd>LspRestart<CR>")
 vim.keymap.set("n", "<leader>lce", "<cmd>lua require('cmp').setup.buffer { enabled = true }<CR>")
 vim.keymap.set("n", "<leader>lcd", "<cmd>lua require('cmp').setup.buffer { enabled = false }<CR>")
 
@@ -69,5 +74,5 @@ vim.keymap.set("n", "+", [[<cmd>vertical resize +5<cr>]])
 vim.keymap.set("n", "=", [[<cmd>vertical resize -5<cr>]])
 --
 vim.keymap.set("n", "<leader>mc", function()
-  vim.wo.conceallevel = vim.wo.conceallevel == 0 and 2 or 0
+    vim.wo.conceallevel = vim.wo.conceallevel == 0 and 2 or 0
 end, { silent = true })
