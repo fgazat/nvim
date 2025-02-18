@@ -24,6 +24,7 @@ return {
         { "go",         "<cmd>Telescope lsp_outgoing_calls<cr>",            desc = "Lsp outgoing calls" },
         { "gl",         "<cmd>Telescope diagnostics<cr>",                   desc = "diagnostics" },
         { "<leader>tt", "<cmd>Telescope todo-comments<cr>",                 desc = "diagnostics" },
+        { "<leader>tr", "<cmd>Telescope resume<cr>",                        desc = "resume" },
         {
             "<leader>f",
             function()
