@@ -13,6 +13,7 @@ return {
             },
         })
         vim.cmd("colorscheme rose-pine-main")
-        vim.cmd("highlight Visual guibg=#285577 guifg=white")
+        -- vim.cmd("highlight Visual guibg=#285577 guifg=white")
+        vim.cmd("highlight Visual guibg=#c4a7e7 guifg=black")
     end
 }
