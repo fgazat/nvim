@@ -3,7 +3,6 @@ local options = {
     clipboard = "unnamedplus",
     cmdheight = 1,
     conceallevel = 0,
-    -- colorcolumn = "120",
     fileencoding = "utf-8",
     encoding = "utf-8",
     hidden = true,
@@ -37,13 +36,9 @@ local options = {
     wrapmargin = 0,
     scrolloff = 8,
     sidescrolloff = 8,
-    -- keymap = "russian-jcukenwin",
-    -- iminsert = 0,
-    -- imsearch = 0,
 }
 
 vim.opt.fillchars = vim.opt.fillchars + 'eob: '
-
 
 for k, v in pairs(options) do
     vim.opt[k] = v

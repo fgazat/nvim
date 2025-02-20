@@ -32,5 +32,6 @@ require("fgazat.lazy_init")
 
 vim.cmd [[ autocmd FileType help wincmd L ]]
 -- vim.cmd [[ autocmd FileType go setlocal omnifunc=v:lua.vim.lsp.omnifunc ]]
+vim.api.nvim_command('autocmd VimResized * wincmd =')
 vim.filetype.add({ extension = { templ = "templ" } })
 vim.filetype.add({ filename = { ["ya.make"] = "cmake", }, })

@@ -157,7 +157,6 @@ return {
                 ["<C-j>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
                 ["<C-k>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
                 ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-                ["<Tab>"] = cmp.mapping.confirm({ select = true }),
                 ["<C-Space>"] = cmp.mapping.complete(),
             },
 
