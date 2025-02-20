@@ -21,5 +21,17 @@ return {
                 ls.jump(-1)
             end
         end, { silent = true })
+
+        local s = ls.snippet
+        local i = ls.insert_node
+
+        local fmt = require("luasnip.extras.fmt").fmt
+
+        ls.add_snippets("markdown", {
+            s("py", fmt("```python\n{}\n```\n", { i(0) })),
+            s("json", fmt("```json\n{}\n```\n", { i(0) })),
+            s("pl", fmt("```plain\n{}\n```\n", { i(0) })),
+            s("go", fmt("```go\n{}\n```\n", { i(0) })),
+        })
     end,
 }
