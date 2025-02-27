@@ -46,6 +46,7 @@ vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format({ async = true }
 
 vim.keymap.set("n", "<leader>lr", function()
     vim.cmd("LspRestart")
+    vim.diagnostic.reset()
     vim.notify("LSP restarted")
 end)
 -- vim.keymap.set("n", "<leader>lr", "<cmd>LspRestart<CR>")
